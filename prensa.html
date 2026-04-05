@@ -51,6 +51,19 @@
     display:flex; align-items:center; gap:0.5rem; transition:color 0.3s;
   }
   .nav-back:hover { color:var(--sky); }
+  .nav-right { display:flex; align-items:center; gap:1rem; }
+  .lang-btn {
+    background:transparent; border:1px solid rgba(66,165,245,0.5);
+    color:rgba(255,255,255,0.85); padding:0.35rem 0.9rem;
+    border-radius:20px; font-size:0.72rem; letter-spacing:0.08em;
+    cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.25s;
+    white-space:nowrap;
+  }
+  .lang-btn:hover { background:rgba(66,165,245,0.15); border-color:var(--sky); color:#fff; }
+  /* bilingual toggle */
+  body .lang-en { display:none; }
+  body.en .lang-es { display:none; }
+  body.en .lang-en { display:inline; }
 
   /* ── HERO HEADER ── */
   .page-header {
@@ -227,27 +240,31 @@
       <span class="nav-brand-sub">Médico Genetista · CDMX</span>
     </div>
   </a>
-  <a href="index.html" class="nav-back">
-    ← Regresar al sitio principal
-  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">
+      <span class="lang-es">← Regresar al sitio</span>
+      <span class="lang-en">← Back to site</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
+  </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <p class="page-tag">Presencia Pública</p>
-  <h1>En los <em>Medios</em></h1>
-  <p>Entrevistas, publicaciones científicas, artículos de divulgación, videos y reconocimientos del Dr. Ronny Kershenovich Sefchovich a lo largo de su trayectoria.</p>
+  <p class="page-tag"><span class="lang-es">Presencia Pública</span><span class="lang-en">Public Presence</span></p>
+  <h1><span class="lang-es">En los <em>Medios</em></span><span class="lang-en">In the <em>Media</em></span></h1>
+  <p><span class="lang-es">Entrevistas, publicaciones científicas, artículos de divulgación, videos y reconocimientos del Dr. Ronny Kershenovich Sefchovich a lo largo de su trayectoria.</span><span class="lang-en">Interviews, scientific publications, articles, videos and recognitions of Dr. Ronny Kershenovich Sefchovich throughout his career.</span></p>
 </div>
 
 <!-- FILTERS -->
 <div class="filters">
-  <button class="filter-btn active" onclick="filterCards('all', this)">Todos</button>
-  <button class="filter-btn" onclick="filterCards('prensa', this)">Prensa</button>
-  <button class="filter-btn" onclick="filterCards('ciencia', this)">Publicaciones Científicas</button>
-  <button class="filter-btn" onclick="filterCards('video', this)">Videos y Entrevistas</button>
-  <button class="filter-btn" onclick="filterCards('articulo', this)">Artículos propios</button>
-  <button class="filter-btn" onclick="filterCards('congreso', this)">Congresos</button>
-  <button class="filter-btn" onclick="filterCards('reconocimiento', this)">Reconocimientos</button>
+  <button class="filter-btn active" onclick="filterCards('all', this)"><span class="lang-es">Todos</span><span class="lang-en">All</span></button>
+  <button class="filter-btn" onclick="filterCards('prensa', this)"><span class="lang-es">Prensa</span><span class="lang-en">Press</span></button>
+  <button class="filter-btn" onclick="filterCards('ciencia', this)"><span class="lang-es">Publicaciones Científicas</span><span class="lang-en">Scientific Publications</span></button>
+  <button class="filter-btn" onclick="filterCards('video', this)"><span class="lang-es">Videos y Entrevistas</span><span class="lang-en">Videos & Interviews</span></button>
+  <button class="filter-btn" onclick="filterCards('articulo', this)"><span class="lang-es">Artículos propios</span><span class="lang-en">Own Articles</span></button>
+  <button class="filter-btn" onclick="filterCards('congreso', this)"><span class="lang-es">Congresos</span><span class="lang-en">Conferences</span></button>
+  <button class="filter-btn" onclick="filterCards('reconocimiento', this)"><span class="lang-es">Reconocimientos</span><span class="lang-en">Awards</span></button>
 </div>
 
 <!-- CONTENT -->
@@ -630,6 +647,10 @@
 </footer>
 
 <script>
+  function toggleLang() {
+    document.body.classList.toggle('en');
+  }
+
   function filterCards(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
