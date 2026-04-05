@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En los Medios — Dr. Ronny Kershenovich Sefchovich</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #1a237e;
+    --blue:     #1565c0;
+    --sky:      #42a5f5;
+    --bg-light: #f4f7fb;
+    --white:    #ffffff;
+    --text:     #0d1b4b;
+    --gray:     #6b7a99;
+    --border:   #dce3f0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg-light); color:var(--text); overflow-x:hidden; }
+
+  /* ── GLOBAL DNA VIDEO ── */
+  #dna-bg {
+    position:fixed; inset:0; z-index:0;
+    width:100%; height:100%; object-fit:cover;
+    opacity:0.22; pointer-events:none;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0.75rem 4rem;
+    background:rgba(26,35,126,0.97);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(66,165,245,0.15);
+  }
+  .nav-logo { display:flex; align-items:center; gap:1rem; text-decoration:none; }
+  .nav-logo img {
+    height:72px; border-radius:6px;
+    box-shadow:0 0 0 2px var(--sky), 0 0 20px rgba(66,165,245,0.45);
+  }
+  .nav-brand { font-family:'Cormorant Garamond',serif; }
+  .nav-brand-name { display:block; font-size:1.05rem; font-weight:400; color:#fff; letter-spacing:0.04em; }
+  .nav-brand-sub  { display:block; font-size:0.68rem; color:var(--sky); letter-spacing:0.12em; text-transform:uppercase; margin-top:0.1rem; }
+  .nav-back {
+    color:rgba(255,255,255,0.7); text-decoration:none;
+    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    display:flex; align-items:center; gap:0.5rem; transition:color 0.3s;
+  }
+  .nav-back:hover { color:var(--sky); }
+
+  /* ── HERO HEADER ── */
+  .page-header {
+    min-height:38vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:8rem 4rem 4rem;
+    background:linear-gradient(135deg, rgba(26,35,126,0.88) 0%, rgba(13,27,110,0.88) 100%);
+    position:relative; z-index:1;
+  }
+  .page-tag {
+    font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--sky); margin-bottom:1rem;
+    display:flex; align-items:center; gap:0.7rem;
+  }
+  .page-tag::before { content:''; width:1.5rem; height:1px; background:var(--sky); }
+  .page-header h1 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2.5rem,5vw,4rem); font-weight:300;
+    color:var(--white); line-height:1.1; margin-bottom:1rem;
+  }
+  .page-header h1 em { font-style:italic; color:var(--sky); }
+  .page-header p { font-size:0.9rem; color:rgba(255,255,255,0.55); max-width:540px; line-height:1.7; }
+
+  /* ── FILTERS ── */
+  .filters {
+    background:var(--white); padding:1.5rem 4rem;
+    border-bottom:1px solid var(--border);
+    display:flex; gap:0.75rem; flex-wrap:wrap;
+    position:sticky; top:80px; z-index:100;
+  }
+  .filter-btn {
+    background:transparent; border:1px solid var(--border);
+    color:var(--gray); padding:0.4rem 1rem; border-radius:20px;
+    font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif;
+    transition:all 0.25s;
+  }
+  .filter-btn:hover,
+  .filter-btn.active { background:var(--navy); border-color:var(--navy); color:white; }
+
+  /* ── MAIN CONTENT ── */
+  .content { max-width:1200px; margin:0 auto; padding:4rem; position:relative; z-index:1; }
+
+  /* ── SECTION HEADINGS ── */
+  .cat-heading {
+    display:flex; align-items:center; gap:1rem;
+    margin:3rem 0 1.5rem;
+  }
+  .cat-heading:first-child { margin-top:0; }
+  .cat-icon {
+    width:36px; height:36px; background:var(--navy);
+    border-radius:4px; display:flex; align-items:center;
+    justify-content:center; font-size:1rem; flex-shrink:0;
+  }
+  .cat-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.6rem; font-weight:300; color:var(--navy);
+  }
+  .cat-title em { font-style:italic; color:var(--blue); }
+  .cat-line { flex:1; height:1px; background:var(--border); }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:1.25rem; margin-bottom:1rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background:var(--white); border:1px solid var(--border);
+    border-radius:4px; overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .card:hover {
+    box-shadow:0 8px 32px rgba(21,101,192,0.12);
+    border-color:var(--sky);
+    transform:translateY(-3px);
+  }
+  .card-top {
+    padding:1.4rem 1.4rem 0;
+  }
+  .card-type {
+    font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--sky); margin-bottom:0.6rem;
+    display:flex; align-items:center; gap:0.4rem;
+  }
+  .card-type::before {
+    content:''; width:16px; height:1px; background:var(--sky);
+  }
+  .card-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.1rem; font-weight:400; color:var(--navy);
+    line-height:1.4; margin-bottom:0.5rem;
+  }
+  .card-meta {
+    font-size:0.75rem; color:var(--gray);
+    display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;
+  }
+  .card-meta .dot { color:var(--border); }
+  .card-desc {
+    padding:0.8rem 1.4rem 0;
+    font-size:0.82rem; color:#3a4a6b; line-height:1.65; flex:1;
+  }
+  .card-footer {
+    padding:1rem 1.4rem 1.4rem; margin-top:auto;
+  }
+  .card-link {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    font-size:0.75rem; color:var(--blue); text-decoration:none;
+    font-weight:500; letter-spacing:0.04em;
+    transition:color 0.2s;
+  }
+  .card-link:hover { color:var(--navy); }
+  .card-link svg { width:12px; height:12px; }
+
+  /* ── HIGHLIGHT CARD (featured) ── */
+  .card.featured {
+    border-color:rgba(66,165,245,0.3);
+    background:linear-gradient(135deg, rgba(26,35,126,0.03) 0%, rgba(66,165,245,0.04) 100%);
+  }
+  .card.featured .card-title { font-size:1.2rem; }
+
+  /* ── BADGE ── */
+  .badge {
+    display:inline-block; font-size:0.65rem; letter-spacing:0.1em;
+    text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:20px;
+    font-weight:500;
+  }
+  .badge-sky   { background:rgba(66,165,245,0.1); color:var(--blue); }
+  .badge-gold  { background:rgba(255,193,7,0.1); color:#b8860b; }
+  .badge-green { background:rgba(56,142,60,0.1); color:#2e7d32; }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    text-align:center; padding:3rem 0;
+    font-size:0.8rem; color:var(--gray);
+  }
+  .back-top a { color:var(--blue); text-decoration:none; }
+  .back-top a:hover { text-decoration:underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--navy); padding:2rem 0;
+    border-top:1px solid rgba(66,165,245,0.1);
+    position:relative; z-index:1;
+  }
+  .footer-inner { max-width:1200px; margin:0 auto; padding:0 4rem;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-brand { font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:rgba(255,255,255,0.6); }
+  .footer-back { font-size:0.75rem; }
+  .footer-back a { color:var(--sky); text-decoration:none; }
+
+  @media (max-width:768px) {
+    nav { padding:0.75rem 1.5rem; }
+    .page-header { padding:7rem 1.5rem 3rem; }
+    .filters { padding:1rem 1.5rem; top:70px; }
+    .content { padding:2.5rem 1.5rem; }
+    .cards-grid { grid-template-columns:1fr; }
+    .footer-inner { padding:0 1.5rem; flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<video id="dna-bg" autoplay loop muted playsinline>
+  <source src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477" type="video/mp4">
+</video>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="WhatsApp%20Image%202026-04-03%20at%2014.50.36.jpeg" alt="Logo">
+    <div class="nav-brand">
+      <span class="nav-brand-name">Dr. Ronny Kershenovich Sefchovich</span>
+      <span class="nav-brand-sub">Médico Genetista · CDMX</span>
+    </div>
+  </a>
+  <a href="index.html" class="nav-back">
+    ← Regresar al sitio principal
+  </a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="page-tag">Presencia Pública</p>
+  <h1>En los <em>Medios</em></h1>
+  <p>Entrevistas, publicaciones científicas, artículos de divulgación, videos y reconocimientos del Dr. Ronny Kershenovich Sefchovich a lo largo de su trayectoria.</p>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterCards('all', this)">Todos</button>
+  <button class="filter-btn" onclick="filterCards('prensa', this)">Prensa</button>
+  <button class="filter-btn" onclick="filterCards('ciencia', this)">Publicaciones Científicas</button>
+  <button class="filter-btn" onclick="filterCards('video', this)">Videos y Entrevistas</button>
+  <button class="filter-btn" onclick="filterCards('articulo', this)">Artículos propios</button>
+  <button class="filter-btn" onclick="filterCards('congreso', this)">Congresos</button>
+  <button class="filter-btn" onclick="filterCards('reconocimiento', this)">Reconocimientos</button>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- PRENSA -->
+  <div class="cat-heading" data-cat="prensa">
+    <div class="cat-icon">📰</div>
+    <h2 class="cat-title">Prensa y <em>Medios</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card featured" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Reportaje · UNO TV</div>
+        <div class="card-title">INMEGEN hace pruebas genéticas para conocer tendencia a padecer cáncer de mama</div>
+        <div class="card-meta">UNO TV <span class="dot">·</span> Oct 2022</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich explica el programa eVA del INMEGEN: análisis de 144 genes para detectar variantes de riesgo hereditario de cáncer en la población mexicana.</div>
+      <div class="card-footer">
+        <a href="https://www.unotv.com/reportajes-especiales/inmegen-hace-pruebas-geneticas-para-conocer-tendencia-a-padecer-cancer-de-mama/" target="_blank" class="card-link">
+          Ver reportaje <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Artículo · El Heraldo de México</div>
+        <div class="card-title">INMEGEN intenta cambiar la historia familiar</div>
+        <div class="card-meta">El Heraldo de México <span class="dot">·</span> Mar 2026</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich es citado sobre la importancia de detectar variantes genéticas de riesgo para prevenir cáncer y cambiar el destino de familias en México.</div>
+      <div class="card-footer">
+        <a href="https://heraldodemexico.com.mx/edicion-impresa/2026/3/4/inmegen-intenta-cambiar-historia-familiar-775578.html" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Artículo · Argon México</div>
+        <div class="card-title">Síndrome de Prader-Willi, enfermedad rara que se puede controlar</div>
+        <div class="card-meta">Argon México <span class="dot">·</span> May 2022</div>
+      </div>
+      <div class="card-desc">Fuente principal del artículo: el Dr. Kershenovich explica la alteración cromosómica 15, su diagnóstico clínico y opciones de manejo para pacientes con Prader-Willi.</div>
+      <div class="card-footer">
+        <a href="https://argonmexico.com/2022/05/30/sindrome-de-prader-willi-enfermedad-rara-que-se-puede-controlar/" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Artículo · N24 / La Neta Neta</div>
+        <div class="card-title">Harán pruebas genéticas gratuitas para detectar riesgo de cáncer</div>
+        <div class="card-meta">N24 · La Neta Neta <span class="dot">·</span> Oct 2022</div>
+      </div>
+      <div class="card-desc">Cobertura del programa eVA del INMEGEN. El Dr. Kershenovich explica el proceso de consulta genética y el análisis de variantes de riesgo oncológico.</div>
+      <div class="card-footer">
+        <a href="https://lanetaneta.com/haran-pruebas-geneticas-gratuitas-para-detectar-riesgo-de-cancer-aqui-puedes-saber-mas/" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Comunicado · INMEGEN</div>
+        <div class="card-title">INMEGEN ofrece opción accesible para especialización en Enfermedades Hereditarias</div>
+        <div class="card-meta">INMEGEN.gob.mx <span class="dot">·</span> Dic 2025</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich es nombrado Profesor Titular del Posgrado de Alta Especialidad en Enfermedades Hereditarias 2026–2027, avalado por la UNAM.</div>
+      <div class="card-footer">
+        <a href="https://www.inmegen.gob.mx/noticias/2025/12/05/el-inmegen-ofrece-una-opcion-accesible-para-que-medicas-y-medicos-genetistas-continuen-su-especializacion-en-enfermedades-hereditarias/" target="_blank" class="card-link">
+          Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="prensa">
+      <div class="card-top">
+        <div class="card-type">Artículo · Consultor Salud</div>
+        <div class="card-title">Día Mundial de las Enfermedades Huérfanas: retos y oportunidades en México</div>
+        <div class="card-meta">Consultor Salud</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich comparte su perspectiva sobre el panorama actual de las enfermedades raras en México, sus retos diagnósticos y las oportunidades de atención.</div>
+      <div class="card-footer">
+        <a href="https://consultorsalud.com.mx/dia-mundial-enfermedades-huerfanas-retos-mexico/" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VIDEOS Y ENTREVISTAS -->
+  <div class="cat-heading" data-cat="video">
+    <div class="cat-icon">🎥</div>
+    <h2 class="cat-title">Videos y <em>Entrevistas</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card featured" data-cat="video">
+      <div class="card-top">
+        <div class="card-type">Entrevista Televisiva · Canal 11</div>
+        <div class="card-title">Entrevista en Once Noticias TV — Programa eVA de Detección Genética</div>
+        <div class="card-meta">Once Noticias TV · Canal 11</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich como Subdirector de Investigación Médica del INMEGEN explica el programa eVA de detección de variantes genéticas de riesgo oncológico para la población mexicana.</div>
+      <div class="card-footer">
+        <a href="https://www.facebook.com/OnceNoticiasTV/videos/-entrevista-ronny-kershenovich-subdirector-de-investigaci%C3%B3n-m%C3%A9dica-del-instituci/331101686733013/" target="_blank" class="card-link">
+          Ver entrevista <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video">
+      <div class="card-top">
+        <div class="card-type">Video Educativo · ScienceLink</div>
+        <div class="card-title">Antecedentes, definición y generalidades de la Enfermedad de Gaucher</div>
+        <div class="card-meta">ScienceLink (Pfizer México) <span class="dot">·</span> Abr 2022 <span class="dot">·</span> 34 min</div>
+      </div>
+      <div class="card-desc">Video de 34 minutos donde el Dr. Kershenovich explica la clasificación, etiología, epidemiología y patogénesis de la Enfermedad de Gaucher, una enfermedad lisosomal de depósito.</div>
+      <div class="card-footer">
+        <a href="https://sciencelink.com/single-video.php?id=7756" target="_blank" class="card-link">
+          Ver video <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="video">
+      <div class="card-top">
+        <div class="card-type">Video Institucional · INMEGEN</div>
+        <div class="card-title">Comunidad INMEGEN — Subdirección de Investigación Médica</div>
+        <div class="card-meta">INMEGEN · Facebook</div>
+      </div>
+      <div class="card-desc">Presentación institucional del Dr. Kershenovich como Subdirector de Investigación Médica del Instituto Nacional de Medicina Genómica.</div>
+      <div class="card-footer">
+        <a href="https://www.facebook.com/inmegen/videos/comunidad-inmegen-subdirecci%C3%B3n-de-investigaci%C3%B3n/483843016607107/" target="_blank" class="card-link">
+          Ver video <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PUBLICACIONES CIENTÍFICAS -->
+  <div class="cat-heading" data-cat="ciencia">
+    <div class="cat-icon">🔬</div>
+    <h2 class="cat-title">Publicaciones <em>Científicas</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card featured" data-cat="ciencia">
+      <div class="card-top">
+        <div class="card-type">Artículo · Frontiers in Genetics · PubMed</div>
+        <div class="card-title">Evaluation of genetic alterations in hereditary cancer susceptibility genes in the Ashkenazi Jewish women community of Mexico</div>
+        <div class="card-meta">
+          Frontiers in Genetics <span class="dot">·</span> Feb 2023
+          <span class="badge badge-sky" style="margin-left:0.3rem">PMID: 36845387</span>
+        </div>
+      </div>
+      <div class="card-desc">Estudio sobre alteraciones en genes de susceptibilidad hereditaria al cáncer en mujeres judías Ashkenazi de la comunidad de México. Publicado con DOI 10.3389/fgene.2023.1094260.</div>
+      <div class="card-footer" style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="https://pubmed.ncbi.nlm.nih.gov/36845387/" target="_blank" class="card-link">
+          PubMed <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+        <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2023.1094260/full" target="_blank" class="card-link">
+          Texto completo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9950094/" target="_blank" class="card-link">
+          PMC <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ciencia">
+      <div class="card-top">
+        <div class="card-type">Presentación · ACMG 2016 / Face2Gene</div>
+        <div class="card-title">Highlighting phenotypic differences of Down Syndrome and Turner (45X) Syndrome Patients from different ethnic groups using computer-aided facial dysmorphology analysis</div>
+        <div class="card-meta">ACMG Annual Meeting <span class="dot">·</span> Tampa, FL <span class="dot">·</span> 2016</div>
+      </div>
+      <div class="card-desc">Presentación en el Congreso Anual del American College of Medical Genetics, analizando diferencias fenotípicas entre grupos étnicos usando análisis facial asistido por computadora (Face2Gene).</div>
+      <div class="card-footer">
+        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" class="card-link">
+          Ver presentación <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ciencia">
+      <div class="card-top">
+        <div class="card-type">Perfil Académico · ResearchGate</div>
+        <div class="card-title">Perfil de investigación — Ronny Kershenovich Sefchovich</div>
+        <div class="card-meta">ResearchGate</div>
+      </div>
+      <div class="card-desc">Perfil académico con publicaciones registradas, incluyendo trabajos sobre diagnóstico prenatal, mosaicismo placentario confinado y su impacto en la confirmación de resultados de NIPT.</div>
+      <div class="card-footer">
+        <a href="https://www.researchgate.net/profile/Ronny-Kershenovich" target="_blank" class="card-link">
+          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="ciencia">
+      <div class="card-top">
+        <div class="card-type">Perfil · Frontiers in Science</div>
+        <div class="card-title">Perfil de publicaciones — Frontiers / Loop</div>
+        <div class="card-meta">Frontiers in Science · Loop</div>
+      </div>
+      <div class="card-desc">Perfil en la red académica de Frontiers donde se registran sus contribuciones como autor y revisor en publicaciones de genética y medicina genómica.</div>
+      <div class="card-footer">
+        <a href="https://loop.frontiersin.org/people/2121763" target="_blank" class="card-link">
+          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ARTÍCULOS PROPIOS -->
+  <div class="cat-heading" data-cat="articulo">
+    <div class="cat-icon">✍️</div>
+    <h2 class="cat-title">Artículos de <em>Divulgación</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card" data-cat="articulo">
+      <div class="card-top">
+        <div class="card-type">Artículo Médico · Top Doctors</div>
+        <div class="card-title">El Síndrome de Down y sus causas</div>
+        <div class="card-meta">Top Doctors <span class="dot">·</span> Jun 2017</div>
+      </div>
+      <div class="card-desc">Artículo de divulgación médica escrito por el Dr. Kershenovich explicando las causas genéticas del Síndrome de Down, su diagnóstico y perspectivas para pacientes y familias.</div>
+      <div class="card-footer">
+        <a href="https://www.topdoctors.mx/articulos-medicos/el-sindrome-de-down-y-sus-causas/" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="articulo">
+      <div class="card-top">
+        <div class="card-type">Artículo Médico · Top Doctors</div>
+        <div class="card-title">Genética Médica: la importancia de los genes</div>
+        <div class="card-meta">Top Doctors <span class="dot">·</span> Feb 2016</div>
+      </div>
+      <div class="card-desc">Artículo de divulgación sobre la importancia de la genética médica en el diagnóstico y prevención de enfermedades hereditarias, dirigido al público general.</div>
+      <div class="card-footer">
+        <a href="https://www.topdoctors.mx/articulos-medicos/genetica-medica-la-importancia-de-los-genes/" target="_blank" class="card-link">
+          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONGRESOS -->
+  <div class="cat-heading" data-cat="congreso">
+    <div class="cat-icon">🎤</div>
+    <h2 class="cat-title">Congresos y <em>Eventos</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card featured" data-cat="congreso">
+      <div class="card-top">
+        <div class="card-type">Congreso Internacional · FEMEXER</div>
+        <div class="card-title">13ª Edición COINER — Congreso Internacional de Enfermedades Raras</div>
+        <div class="card-meta">COINER <span class="dot">·</span> Nov 2022 <span class="badge badge-sky" style="margin-left:0.3rem">Presidente del Comité Científico</span></div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich presidió el Comité Científico del 13° Congreso Internacional de Enfermedades Raras, el encuentro más importante del sector en México y Latinoamérica.</div>
+      <div class="card-footer">
+        <a href="https://www.prnewswire.com/news-releases/con-gran-exito-se-llevo-a-cabo-la-inauguracion-de-la-decimotercera-edicion-del-congreso-internacional-de-enfermedades-raras-868000958.html" target="_blank" class="card-link">
+          Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="congreso">
+      <div class="card-top">
+        <div class="card-type">Congreso Internacional · ACMG 2016</div>
+        <div class="card-title">ACMG Annual Clinical Genetics Meeting — Tampa, Florida</div>
+        <div class="card-meta">American College of Medical Genetics <span class="dot">·</span> 2016 <span class="dot">·</span> Tampa, FL</div>
+      </div>
+      <div class="card-desc">Participación como ponente con presentación sobre análisis de dismorfología facial asistida por computadora en Síndrome de Down y Síndrome de Turner en distintos grupos étnicos.</div>
+      <div class="card-footer">
+        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" class="card-link">
+          Ver presentación <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="congreso">
+      <div class="card-top">
+        <div class="card-type">Perfil Experto · The Ehlers-Danlos Society</div>
+        <div class="card-title">Miembro experto — The Ehlers-Danlos Society</div>
+        <div class="card-meta">Ehlers-Danlos Society · Internacional</div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich es reconocido como miembro experto del Consorcio Internacional de Ehlers-Danlos, siendo referente en diagnóstico y manejo de enfermedades del tejido conectivo.</div>
+      <div class="card-footer">
+        <a href="https://www.ehlers-danlos.com/ronny-kershenovich/" target="_blank" class="card-link">
+          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RECONOCIMIENTOS -->
+  <div class="cat-heading" data-cat="reconocimiento">
+    <div class="cat-icon">🏆</div>
+    <h2 class="cat-title"><em>Reconocimientos</em></h2>
+    <div class="cat-line"></div>
+  </div>
+  <div class="cards-grid">
+
+    <div class="card featured" data-cat="reconocimiento">
+      <div class="card-top">
+        <div class="card-type">Reconocimiento Nacional · Líderes Mexicanos</div>
+        <div class="card-title">Los Mejores Médicos de México 2024 y 2025</div>
+        <div class="card-meta">Líderes Mexicanos <span class="dot">·</span> 2024–2025 <span class="badge badge-gold" style="margin-left:0.3rem">2 años consecutivos</span></div>
+      </div>
+      <div class="card-desc">El Dr. Kershenovich fue incluido en la lista de los mejores médicos de México por la publicación Líderes Mexicanos durante dos años consecutivos, reconociendo su trayectoria en genética médica.</div>
+      <div class="card-footer">
+        <a href="https://lideresmexicanos.com/persona/medicos-2025-ronny-kershenovich-sefchovich" target="_blank" class="card-link">
+          Ver reconocimiento <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="reconocimiento">
+      <div class="card-top">
+        <div class="card-type">Perfil Oficial · INMEGEN</div>
+        <div class="card-title">Curriculum Vitae Institucional — INMEGEN</div>
+        <div class="card-meta">Instituto Nacional de Medicina Genómica</div>
+      </div>
+      <div class="card-desc">Perfil oficial del Dr. Kershenovich en el INMEGEN como Subdirector de Investigación Médica, incluyendo su formación, afiliaciones y líneas de investigación.</div>
+      <div class="card-footer">
+        <a href="https://www.inmegen.gob.mx/investigacion/investigadores/curriculum-vitae/?perfil=8921" target="_blank" class="card-link">
+          Ver CV oficial <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="reconocimiento">
+      <div class="card-top">
+        <div class="card-type">Perfil · Centro Médico ABC</div>
+        <div class="card-title">Perfil médico — ABC Medical Center</div>
+        <div class="card-meta">Centro Médico ABC</div>
+      </div>
+      <div class="card-desc">Perfil oficial en el Centro Médico ABC donde ejerce como Presidente de la Práctica Médica Grupal de Genética. Idiomas: español, inglés, francés y hebreo.</div>
+      <div class="card-footer">
+        <a href="https://centromedicoabc.com/en/doctor/ronny-kershenovich-sefchovich/" target="_blank" class="card-link">
+          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="back-top">
+    <a href="#top">↑ Volver arriba</a> &nbsp;·&nbsp; <a href="index.html">← Regresar al sitio principal</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Dr. Ronny Kershenovich Sefchovich · Médico Genetista</div>
+    <div class="footer-back"><a href="index.html">← Regresar al sitio principal</a></div>
+  </div>
+</footer>
+
+<script>
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.card, .cat-heading').forEach(el => {
+      if (cat === 'all') {
+        el.style.display = '';
+      } else {
+        const elCat = el.getAttribute('data-cat');
+        el.style.display = (elCat === cat) ? '' : 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
