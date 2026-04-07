@@ -451,10 +451,26 @@
     to   { opacity:1; transform:translateY(0); }
   }
 
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display:none; flex-direction:column; gap:5px;
+    background:none; border:none; cursor:pointer; padding:4px; z-index:300;
+  }
+  .hamburger span {
+    display:block; width:24px; height:2px;
+    background:#fff; border-radius:2px; transition:all 0.3s;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width:960px) {
     nav { padding:1rem 1.5rem; }
-    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(26,35,126,0.97); backdrop-filter:blur(16px); padding:1.2rem 1.5rem; gap:0.5rem; border-top:1px solid rgba(66,165,245,0.15); }
+    .nav-links.open { display:flex; }
+    .nav-links li { width:100%; }
+    .nav-links a { display:block; padding:0.6rem 0; font-size:0.85rem; border-bottom:1px solid rgba(66,165,245,0.1); }
+    .nav-links .nav-cta { display:inline-block; margin-top:0.5rem; border-bottom:none; }
+    .nav-links .lang-btn { margin-top:0.5rem; }
     .hero { grid-template-columns:1fr; }
     .hero-left { padding:5rem 2rem 2rem; }
     .hero-right { padding:2rem; }
@@ -485,6 +501,9 @@
       <span class="nav-brand-sub"><span class="lang-es">Médico Genetista · CDMX</span><span class="lang-en">Medical Geneticist · CDMX</span></span>
     </div>
   </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#sobre"><span class="lang-es">Sobre el Dr.</span><span class="lang-en">About</span></a></li>
     <li><a href="#especialidades"><span class="lang-es">Especialidades</span><span class="lang-en">Specialties</span></a></li>
@@ -1052,7 +1071,7 @@
         <span class="lang-en">Dr. Ronny Kershenovich Sefchovich · Medical Geneticist</span>
       </div>
       <div class="footer-copy">
-        © 2025 · <span class="lang-es">Genética Médica y Medicina Genómica</span><span class="lang-en">Medical Genetics and Genomic Medicine</span>
+        © 2026 ·<span class="lang-es">Genética Médica y Medicina Genómica</span><span class="lang-en">Medical Genetics and Genomic Medicine</span>
       </div>
       <div class="footer-cedulas">
         <span class="lang-es">Cédula Prof.: 2792071 · Cédula Esp.: 4110957<br>Certificado CMG No. 193</span>
@@ -1063,6 +1082,16 @@
 </footer>
 
 <script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('open');
+  }
+  // Cierra el menú al hacer click en un link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
+
   function toggleLang() {
     document.body.classList.toggle('en');
     const btn = document.querySelector('.lang-btn');
