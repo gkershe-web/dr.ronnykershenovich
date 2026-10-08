@@ -237,6 +237,12 @@
     opacity:0.6;
     transition:opacity 100ms, color 0.2s;
   }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    .card:hover { transform:none; }
+  }
 </style>
 </head>
 <body>
@@ -681,6 +687,16 @@
 
   // Hace que iPhone muestre el efecto al presionar (:active)
   document.addEventListener('touchstart', () => {}, { passive: true });
+
+  // Respeta "Reducir movimiento": detiene el video de fondo
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const dnaBg = document.getElementById('dna-bg');
+  function applyMotionPref() {
+    if (reduceMotion.matches) dnaBg.pause();
+    else dnaBg.play().catch(() => {});
+  }
+  applyMotionPref();
+  reduceMotion.addEventListener('change', applyMotionPref);
 </script>
 
 </body>
