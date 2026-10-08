@@ -94,7 +94,7 @@
     background:var(--white); padding:1.5rem 4rem;
     border-bottom:1px solid var(--border);
     display:flex; gap:0.75rem; flex-wrap:wrap;
-    position:sticky; top:80px; z-index:100;
+    position:sticky; top:var(--nav-h, 80px); z-index:100;
   }
   .filter-btn {
     background:transparent; border:1px solid var(--border);
@@ -221,12 +221,24 @@
   .footer-back a { color:var(--sky); text-decoration:none; }
 
   @media (max-width:768px) {
-    nav { padding:0.75rem 1.5rem; }
-    .page-header { padding:7rem 1.5rem 3rem; }
-    .filters { padding:1rem 1.5rem; top:70px; }
+    nav { padding:0.6rem 1rem; gap:0.75rem; }
+    .nav-logo { gap:0.6rem; min-width:0; }
+    .nav-logo img { height:48px; }
+    .nav-brand-name { font-size:0.92rem; line-height:1.2; }
+    .nav-brand-sub { display:none; }
+    .nav-right { gap:0.6rem; flex-shrink:0; }
+    .nav-back { font-size:0.72rem; letter-spacing:0.06em; white-space:nowrap; }
+    .page-header { padding:calc(var(--nav-h, 70px) + 2rem) 1.5rem 3rem; }
+    .filters { padding:1rem 1.5rem; }
     .content { padding:2.5rem 1.5rem; }
     .cards-grid { grid-template-columns:1fr; }
     .footer-inner { padding:0 1.5rem; flex-direction:column; text-align:center; }
+  }
+
+  .nb-short { display:none; }
+  @media (max-width:768px) {
+    .nb-long { display:none; }
+    .nb-short { display:inline; }
   }
 
   /* ── PRESS FEEDBACK ── */
@@ -277,8 +289,8 @@
   </a>
   <div class="nav-right">
     <a href="index.html" class="nav-back">
-      <span class="lang-es">← Regresar al sitio</span>
-      <span class="lang-en">← Back to site</span>
+      <span class="lang-es"><span class="nb-long">← Regresar al sitio</span><span class="nb-short">← Inicio</span></span>
+      <span class="lang-en"><span class="nb-long">← Back to site</span><span class="nb-short">← Home</span></span>
     </a>
     <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
   </div>
@@ -375,7 +387,7 @@
         <div class="card-title">INMEGEN ofrece opción accesible para especialización en Enfermedades Hereditarias</div>
         <div class="card-meta">INMEGEN.gob.mx <span class="dot">·</span> Dic 2025</div>
       </div>
-      <div class="card-desc">Mi nombramiento como Profesor Titular del Posgrado de Alta Especialidad en Enfermedades Hereditarias 2026–2027, avalado por la UNAM.</div>
+      <div class="card-desc">Nota del INMEGEN sobre mi nombramiento como Profesor Titular del Posgrado de Alta Especialidad en Enfermedades Hereditarias (ciclo 2026–2027), avalado por la UNAM.</div>
       <div class="card-footer">
         <a href="https://www.inmegen.gob.mx/noticias/2025/12/05/el-inmegen-ofrece-una-opcion-accesible-para-que-medicas-y-medicos-genetistas-continuen-su-especializacion-en-enfermedades-hereditarias/" target="_blank" class="card-link">
           Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
@@ -682,6 +694,14 @@
 </footer>
 
 <script>
+  // Guarda la altura real de la barra para que los filtros se peguen justo debajo
+  function syncNavHeight() {
+    document.documentElement.style.setProperty('--nav-h', document.querySelector('nav').offsetHeight + 'px');
+  }
+  syncNavHeight();
+  addEventListener('resize', syncNavHeight);
+  if (document.fonts) document.fonts.ready.then(syncNavHeight);
+
   function toggleLang() {
     document.body.classList.toggle('en');
   }
