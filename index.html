@@ -170,7 +170,7 @@
     font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase;
     color:var(--sky); margin-bottom:1.5rem;
     display:flex; align-items:center; gap:0.8rem;
-    animation:fadeUp 0.6s ease 0.2s both;
+    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms both;
   }
   .hero-eyebrow::before { content:''; width:2rem; height:1px; background:var(--sky); }
   .hero-title {
@@ -178,16 +178,16 @@
     font-size:clamp(2.8rem,4.5vw,4.5rem);
     font-weight:300; color:var(--white); line-height:1.1;
     margin-bottom:0.6rem;
-    animation:fadeUp 0.6s ease 0.35s both;
+    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 50ms both;
   }
   .hero-title em { font-style:italic; color:var(--sky); }
   .hero-subtitle {
     font-family:'Cormorant Garamond',serif;
     font-size:1.2rem; color:rgba(255,255,255,0.7);
     font-weight:300; letter-spacing:0.06em; margin-bottom:2.5rem;
-    animation:fadeUp 0.6s ease 0.5s both;
+    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 100ms both;
   }
-  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 0.6s ease 0.65s both; }
+  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 150ms both; }
   .btn-wa {
     background:#25d366; color:white; padding:0.85rem 1.8rem;
     text-decoration:none; font-size:0.85rem; font-weight:500;
@@ -206,7 +206,7 @@
     padding:5rem 4rem; position:relative; z-index:2;
   }
   .hero-photo-wrap {
-    position:relative; animation:fadeUp 0.8s ease 0.4s both;
+    position:relative; animation:fadeUp 500ms cubic-bezier(0.23, 1, 0.32, 1) 100ms both;
   }
   .hero-photo-wrap::before {
     content:''; position:absolute;
@@ -446,7 +446,7 @@
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity:0; transform:translateY(20px); }
+    from { opacity:0; transform:translateY(12px); }
     to   { opacity:1; transform:translateY(0); }
   }
 
@@ -552,12 +552,12 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="#sobre"><span class="lang-es">Sobre el Dr.</span><span class="lang-en">About</span></a></li>
+    <li><a href="#sobre"><span class="lang-es">Sobre mí</span><span class="lang-en">About me</span></a></li>
     <li><a href="#especialidades"><span class="lang-es">Especialidades</span><span class="lang-en">Specialties</span></a></li>
     <li><a href="#trayectoria"><span class="lang-es">Trayectoria</span><span class="lang-en">Career</span></a></li>
     <li><a href="#horarios"><span class="lang-es">Horarios</span><span class="lang-en">Schedule</span></a></li>
     <li><a href="prensa.html"><span class="lang-es">En los Medios</span><span class="lang-en">In the Media</span></a></li>
-    <li><a href="#contacto" class="nav-cta"><span class="lang-es">Agendar Consulta</span><span class="lang-en">Book Appointment</span></a></li>
+    <li><a href="#contacto" class="nav-cta"><span class="lang-es">Agenda tu consulta</span><span class="lang-en">Book your appointment</span></a></li>
     <li><button class="lang-btn" onclick="toggleLang()">EN / ES</button></li>
   </ul>
 </nav>
@@ -583,7 +583,7 @@
         <span class="lang-en">WhatsApp</span>
       </a>
       <a href="https://www.doctoralia.com.mx/ronny-kershenovich-sefchovich/genetista/cuajimalpa-de-morelos" class="btn-doc" target="_blank">
-        <span class="lang-es">Agendar en Doctoralia</span>
+        <span class="lang-es">Agenda en Doctoralia</span>
         <span class="lang-en">Book on Doctoralia</span>
       </a>
     </div>
@@ -645,8 +645,8 @@
           <span class="lang-en">Education</span>
         </p>
         <h2 class="section-title">
-          <span class="lang-es">Formación <em>académica</em></span>
-          <span class="lang-en">Academic <em>background</em></span>
+          <span class="lang-es">Mi formación <em>académica</em></span>
+          <span class="lang-en">My academic <em>background</em></span>
         </h2>
         <div class="formacion">
           <div class="form-item">
@@ -730,30 +730,30 @@
 
       <div class="sobre-right">
         <p class="section-tag">
-          <span class="lang-es">Sobre el Doctor</span>
-          <span class="lang-en">About the Doctor</span>
+          <span class="lang-es">Sobre mí</span>
+          <span class="lang-en">About me</span>
         </p>
         <h2 class="section-title">
-          <span class="lang-es">Ciencia al servicio<br>de <em>cada paciente</em></span>
-          <span class="lang-en">Science at the service<br>of <em>every patient</em></span>
+          <span class="lang-es">Ciencia al servicio<br>de <em>ti y tu familia</em></span>
+          <span class="lang-en">Science at the service<br>of <em>you and your family</em></span>
         </h2>
         <p class="lang-es">
-          El Dr. Ronny Kershenovich Sefchovich es uno de los genetistas más reconocidos de México, con más de dos décadas de práctica clínica activa. Su formación en la Universidad Anáhuac del Norte y su especialidad en el Hospital General de México avalada por la UNAM lo posicionan como una figura de autoridad en genética médica a nivel nacional e internacional.
+          Soy médico genetista y llevo más de veinte años dedicado a la práctica clínica. Me formé como médico cirujano en la Universidad Anáhuac del Norte e hice mi especialidad en Genética Médica en el Hospital General de México, con aval de la UNAM.
         </p>
         <p class="lang-en">
-          Dr. Ronny Kershenovich Sefchovich is one of Mexico's most recognized medical geneticists, with over two decades of active clinical practice. His training at Universidad Anáhuac del Norte and his specialty at the Hospital General de México, endorsed by UNAM, position him as an authority in medical genetics at both national and international levels.
+          I'm a medical geneticist with more than twenty years of clinical practice. I trained as a physician at Universidad Anáhuac del Norte and completed my specialty in Medical Genetics at Hospital General de México, endorsed by UNAM.
         </p>
         <p class="lang-es">
-          Su experiencia abarca desde las enfermedades genéticas pediátricas y neonatales hasta la oncogenética, el diagnóstico prenatal, las enfermedades del tejido conectivo y las enfermedades raras — campos donde la precisión diagnóstica y la empatía con el paciente son igualmente indispensables.
+          Acompaño a pacientes y familias en todas las etapas de la vida: desde el diagnóstico prenatal y las enfermedades genéticas en recién nacidos y niños, hasta la oncogenética, las enfermedades del tejido conectivo y las enfermedades raras. En todos estos casos, un diagnóstico preciso importa tanto como escucharte y que entiendas cada paso.
         </p>
         <p class="lang-en">
-          His expertise spans from pediatric and neonatal genetic diseases to oncogenetics, prenatal diagnosis, connective tissue disorders, and rare diseases — fields where diagnostic precision and patient empathy are equally essential.
+          I work with patients and families at every stage of life: from prenatal diagnosis and genetic conditions in newborns and children to oncogenetics, connective tissue disorders and rare diseases. In every case, an accurate diagnosis matters as much as listening to you and making sure you understand each step.
         </p>
         <p class="lang-es">
-          Actualmente se desempeña como Subdirector de Investigación Médica del Instituto Nacional de Medicina Genómica (INMEGEN), es Profesor Titular de la Alta Especialidad en Enfermedades Hereditarias avalada por la UNAM, y Presidente de la Práctica Médica Grupal de Genética del Centro Médico ABC. Ha publicado artículos en revistas médicas nacionales e internacionales y ha participado como ponente en congresos de su especialidad alrededor del mundo.
+          Actualmente soy Subdirector de Investigación Médica en el Instituto Nacional de Medicina Genómica (INMEGEN), Profesor Titular de la Alta Especialidad en Enfermedades Hereditarias avalada por la UNAM y Presidente de la Práctica Médica Grupal de Genética del Centro Médico ABC. He publicado artículos en revistas médicas nacionales e internacionales y he participado como ponente en congresos de la especialidad en distintos países.
         </p>
         <p class="lang-en">
-          He currently serves as Deputy Director of Medical Research at the National Institute of Genomic Medicine (INMEGEN), is Professor of the Postgraduate Program in Hereditary Diseases endorsed by UNAM, and is President of the Group Medical Practice of Genetics at Centro Médico ABC. He has published articles in national and international medical journals and has been a speaker at specialty congresses worldwide.
+          I currently serve as Deputy Director of Medical Research at the National Institute of Genomic Medicine (INMEGEN), Professor of the UNAM-endorsed Postgraduate Program in Hereditary Diseases, and President of the Group Medical Practice of Genetics at Centro Médico ABC. I have published in national and international medical journals and have spoken at specialty congresses in several countries.
         </p>
         <div class="tags">
           <span class="tag lang-es">Genética Clínica</span>
@@ -786,11 +786,11 @@
       <span class="lang-en">Areas of Care</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">¿En qué puede<br>ayudarte el <em>Dr. Kershenovich?</em></span>
-      <span class="lang-en">How can<br><em>Dr. Kershenovich</em> help you?</span>
+      <span class="lang-es">¿En qué te<br>puedo <em>ayudar?</em></span>
+      <span class="lang-en">How can<br><em>I help you?</em></span>
     </h2>
-    <p class="esp-intro lang-es">Diagnóstico y manejo integral de condiciones hereditarias en todas las etapas de la vida, desde el período prenatal hasta la edad adulta.</p>
-    <p class="esp-intro lang-en">Comprehensive diagnosis and management of hereditary conditions at every stage of life, from the prenatal period through adulthood.</p>
+    <p class="esp-intro lang-es">Diagnostico y acompaño condiciones hereditarias en todas las etapas de la vida, desde el embarazo hasta la edad adulta.</p>
+    <p class="esp-intro lang-en">I diagnose and care for hereditary conditions at every stage of life, from pregnancy through adulthood.</p>
     <div class="esp-grid">
       <div class="esp-card">
         <div class="esp-num">01</div>
@@ -815,12 +815,12 @@
       <div class="esp-card">
         <div class="esp-num">05</div>
         <h3><span class="lang-es">Infertilidad de Causa Genética</span><span class="lang-en">Genetic-Cause Infertility</span></h3>
-        <p><span class="lang-es">Estudio cromosómico en parejas con infertilidad o pérdidas gestacionales repetidas. Miembro de la American Society of Reproductive Medicine.</span><span class="lang-en">Chromosomal study in couples with infertility or recurrent pregnancy loss. Member of the American Society of Reproductive Medicine.</span></p>
+        <p><span class="lang-es">Estudio cromosómico en parejas con infertilidad o pérdidas gestacionales repetidas. Soy miembro de la American Society of Reproductive Medicine.</span><span class="lang-en">Chromosomal study in couples with infertility or recurrent pregnancy loss. I'm a member of the American Society of Reproductive Medicine.</span></p>
       </div>
       <div class="esp-card">
         <div class="esp-num">06</div>
         <h3><span class="lang-es">Revisión de Pruebas Genéticas</span><span class="lang-en">Genetic Test Review</span></h3>
-        <p><span class="lang-es">Interpretación experta de resultados de paneles genómicos, estudios de secuenciación masiva (NGS) y arrays cromosómicos.</span><span class="lang-en">Expert interpretation of genomic panel results, next-generation sequencing (NGS) studies, and chromosomal arrays.</span></p>
+        <p><span class="lang-es">Si ya tienes resultados de paneles genómicos, secuenciación masiva (NGS) o arrays cromosómicos, te ayudo a entender qué significan.</span><span class="lang-en">If you already have results from genomic panels, next-generation sequencing (NGS) or chromosomal arrays, I'll help you understand what they mean.</span></p>
       </div>
       <div class="esp-card">
         <div class="esp-num">07</div>
@@ -841,8 +841,8 @@
           <span class="lang-en">Current Positions</span>
         </p>
         <h2 class="section-title">
-          <span class="lang-es">Trayectoria <em>profesional</em></span>
-          <span class="lang-en">Professional <em>career</em></span>
+          <span class="lang-es">Mi trayectoria <em>profesional</em></span>
+          <span class="lang-en">My professional <em>career</em></span>
         </h2>
         <div class="timeline">
           <div class="tl-item">
@@ -895,8 +895,8 @@
           <span class="lang-en">Societies & Memberships</span>
         </p>
         <h2 class="section-title">
-          <span class="lang-es">Reconocimiento <em>internacional</em></span>
-          <span class="lang-en">International <em>recognition</em></span>
+          <span class="lang-es">Sociedades a las que <em>pertenezco</em></span>
+          <span class="lang-en">Societies I <em>belong to</em></span>
         </h2>
         <div class="memb-list">
           <div class="memb-item">Consejo Mexicano de Genética Humana</div>
@@ -954,7 +954,7 @@
       </div>
     </div>
     <p class="hor-note lang-es">* Última consulta presencial a las 8:00 pm. Para agendar comunícate por WhatsApp o a través de Doctoralia.</p>
-    <p class="hor-note lang-en">* Last in-person appointment at 8:00 pm. To book, contact via WhatsApp or through Doctoralia.</p>
+    <p class="hor-note lang-en">* Last in-person appointment at 8:00 pm. To book, message me on WhatsApp or use Doctoralia.</p>
   </div>
 </section>
 
@@ -998,8 +998,8 @@
     <div class="rating-row">
       <div class="rating-big">10/10</div>
       <div class="rating-details">
-        <strong class="lang-es">Recomendado por el 100% de sus pacientes</strong>
-        <strong class="lang-en">Recommended by 100% of patients</strong>
+        <strong class="lang-es">Recomendado por el 100% de mis pacientes</strong>
+        <strong class="lang-en">Recommended by 100% of my patients</strong>
         <span class="lang-es">Calificación verificada en plataformas médicas independientes</span>
         <span class="lang-en">Verified rating on independent medical platforms</span>
         <span style="margin-top:0.4rem; display:block;">Doctoralia · Top Doctors · Centro Médico ABC</span>
@@ -1018,14 +1018,14 @@
           <span class="lang-en">Book your Appointment</span>
         </p>
         <h2 class="section-title">
-          <span class="lang-es">Estamos para <em>atenderte</em></span>
-          <span class="lang-en">We are here <em>for you</em></span>
+          <span class="lang-es">Estoy para <em>atenderte</em></span>
+          <span class="lang-en">I'm here <em>for you</em></span>
         </h2>
         <p style="color:var(--gray); font-size:0.9rem; line-height:1.7;" class="lang-es">
-          Puedes agendar tu consulta directamente con el doctor por WhatsApp o a través de Doctoralia. Sin formularios, sin esperas innecesarias.
+          Puedes agendar tu consulta conmigo directamente por WhatsApp o a través de Doctoralia. Sin formularios ni esperas innecesarias.
         </p>
         <p style="color:var(--gray); font-size:0.9rem; line-height:1.7;" class="lang-en">
-          You can book your appointment directly with the doctor via WhatsApp or through Doctoralia. No forms, no unnecessary waiting.
+          You can book your appointment with me directly via WhatsApp or through Doctoralia. No forms, no unnecessary waiting.
         </p>
         <div class="contact-actions">
           <a href="https://wa.me/525522712594" class="btn-wa-big" target="_blank">
@@ -1049,8 +1049,8 @@
       </div>
       <div>
         <p class="section-tag">
-          <span class="lang-es">Dónde Encontrarnos</span>
-          <span class="lang-en">Where to Find Us</span>
+          <span class="lang-es">Dónde encontrarme</span>
+          <span class="lang-en">Where to find me</span>
         </p>
         <div class="contact-info">
           <div class="ci-item">
