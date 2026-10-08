@@ -16,6 +16,8 @@
     --text:     #0d1b4b;
     --gray:     #6b7a99;
     --border:   #dce3f0;
+    --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
@@ -33,9 +35,10 @@
     position:fixed; top:0; left:0; right:0; z-index:200;
     display:flex; justify-content:space-between; align-items:center;
     padding:0.75rem 4rem;
-    background:rgba(26,35,126,0.97);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(66,165,245,0.15);
+    background:rgba(26,35,126,0.85);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .nav-logo { display:flex; align-items:center; gap:1rem; text-decoration:none; }
   .nav-logo img {
@@ -50,16 +53,16 @@
     font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
     display:flex; align-items:center; gap:0.5rem; transition:color 0.3s;
   }
-  .nav-back:hover { color:var(--sky); }
+  @media (hover:hover) and (pointer:fine) { .nav-back:hover { color:var(--sky); } }
   .nav-right { display:flex; align-items:center; gap:1rem; }
   .lang-btn {
     background:transparent; border:1px solid rgba(66,165,245,0.5);
     color:rgba(255,255,255,0.85); padding:0.35rem 0.9rem;
     border-radius:20px; font-size:0.72rem; letter-spacing:0.08em;
-    cursor:pointer; font-family:'DM Sans',sans-serif; transition:all 0.25s;
+    cursor:pointer; font-family:'DM Sans',sans-serif;
     white-space:nowrap;
   }
-  .lang-btn:hover { background:rgba(66,165,245,0.15); border-color:var(--sky); color:#fff; }
+  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:rgba(66,165,245,0.15); border-color:var(--sky); color:#fff; } }
   /* bilingual toggle */
   body .lang-en { display:none; }
   body.en .lang-es { display:none; }
@@ -97,10 +100,9 @@
     background:transparent; border:1px solid var(--border);
     color:var(--gray); padding:0.4rem 1rem; border-radius:20px;
     font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif;
-    transition:all 0.25s;
   }
-  .filter-btn:hover,
   .filter-btn.active { background:var(--navy); border-color:var(--navy); color:white; }
+  @media (hover:hover) and (pointer:fine) { .filter-btn:hover { background:var(--navy); border-color:var(--navy); color:white; } }
 
   /* ── MAIN CONTENT ── */
   .content { max-width:1200px; margin:0 auto; padding:4rem; position:relative; z-index:1; }
@@ -135,12 +137,14 @@
     background:var(--white); border:1px solid var(--border);
     border-radius:4px; overflow:hidden;
     display:flex; flex-direction:column;
-    transition:box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    transition:box-shadow 200ms ease, border-color 200ms ease, transform 200ms var(--ease-out);
   }
-  .card:hover {
-    box-shadow:0 8px 32px rgba(21,101,192,0.12);
-    border-color:var(--sky);
-    transform:translateY(-3px);
+  @media (hover:hover) and (pointer:fine) {
+    .card:hover {
+      box-shadow:0 8px 32px rgba(21,101,192,0.12);
+      border-color:var(--sky);
+      transform:translateY(-3px);
+    }
   }
   .card-top {
     padding:1.4rem 1.4rem 0;
@@ -176,7 +180,7 @@
     font-weight:500; letter-spacing:0.04em;
     transition:color 0.2s;
   }
-  .card-link:hover { color:var(--navy); }
+  @media (hover:hover) and (pointer:fine) { .card-link:hover { color:var(--navy); } }
   .card-link svg { width:12px; height:12px; }
 
   /* ── HIGHLIGHT CARD (featured) ── */
@@ -202,7 +206,7 @@
     font-size:0.8rem; color:var(--gray);
   }
   .back-top a { color:var(--blue); text-decoration:none; }
-  .back-top a:hover { text-decoration:underline; }
+  @media (hover:hover) and (pointer:fine) { .back-top a:hover { text-decoration:underline; } }
 
   /* ── FOOTER ── */
   footer {
@@ -231,13 +235,13 @@
   }
   /* al soltar: regresa en 160ms (antes heredaba "all 0.25s" o regresaba de golpe) */
   .filter-btn, .lang-btn {
-    transition:transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background 0.25s, color 0.25s, border-color 0.25s;
+    transition:transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   }
-  .card-link { transition:opacity 160ms cubic-bezier(0.23, 1, 0.32, 1), color 0.2s; }
-  .nav-back { transition:opacity 160ms cubic-bezier(0.23, 1, 0.32, 1), color 0.3s; }
+  .card-link { transition:opacity 160ms var(--ease-out), color 200ms ease; }
+  .nav-back { transition:opacity 160ms var(--ease-out), color 200ms ease; }
   .filter-btn:active, .lang-btn:active {
     transform:scale(0.97);
-    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), background 0.25s, color 0.25s, border-color 0.25s;
+    transition:transform 100ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   }
   .card-link:active, .nav-back:active {
     opacity:0.6;
@@ -248,6 +252,11 @@
   @media (prefers-reduced-motion:reduce) {
     html { scroll-behavior:auto; }
     .card:hover { transform:none; }
+  }
+
+  /* ── REDUCED TRANSPARENCY ── */
+  @media (prefers-reduced-transparency:reduce) {
+    nav { background:rgba(26,35,126,0.97); -webkit-backdrop-filter:none; backdrop-filter:none; }
   }
 </style>
 </head>
@@ -404,7 +413,7 @@
         <div class="card-title">Entrevista en Once Noticias TV — Programa eVA de Detección Genética</div>
         <div class="card-meta">Once Noticias TV · Canal 11</div>
       </div>
-      <div class="card-desc">Como Subdirector de Investigación Médica del INMEGEN, explico el programa eVA de detección de variantes genéticas de riesgo oncológico para la población mexicana.</div>
+      <div class="card-desc">Cuando era Subdirector de Investigación Médica del INMEGEN, expliqué en esta entrevista el programa eVA de detección de variantes genéticas de riesgo oncológico para la población mexicana.</div>
       <div class="card-footer">
         <a href="https://www.facebook.com/OnceNoticiasTV/videos/-entrevista-ronny-kershenovich-subdirector-de-investigaci%C3%B3n-m%C3%A9dica-del-instituci/331101686733013/" target="_blank" class="card-link">
           Ver entrevista <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
@@ -432,7 +441,7 @@
         <div class="card-title">Comunidad INMEGEN — Subdirección de Investigación Médica</div>
         <div class="card-meta">INMEGEN · Facebook</div>
       </div>
-      <div class="card-desc">Mi presentación institucional como Subdirector de Investigación Médica del Instituto Nacional de Medicina Genómica.</div>
+      <div class="card-desc">Mi presentación institucional de cuando era Subdirector de Investigación Médica del Instituto Nacional de Medicina Genómica.</div>
       <div class="card-footer">
         <a href="https://www.facebook.com/inmegen/videos/comunidad-inmegen-subdirecci%C3%B3n-de-investigaci%C3%B3n/483843016607107/" target="_blank" class="card-link">
           Ver video <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
@@ -635,7 +644,7 @@
         <div class="card-title">Curriculum Vitae Institucional — INMEGEN</div>
         <div class="card-meta">Instituto Nacional de Medicina Genómica</div>
       </div>
-      <div class="card-desc">Mi perfil oficial en el INMEGEN como Subdirector de Investigación Médica, con mi formación, afiliaciones y líneas de investigación.</div>
+      <div class="card-desc">Mi perfil en el INMEGEN de la etapa en que fui Subdirector de Investigación Médica, con mi formación, afiliaciones y líneas de investigación.</div>
       <div class="card-footer">
         <a href="https://www.inmegen.gob.mx/investigacion/investigadores/curriculum-vitae/?perfil=8921" target="_blank" class="card-link">
           Ver CV oficial <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
@@ -681,13 +690,30 @@
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
+    const shown = [];
     document.querySelectorAll('.card, .cat-heading').forEach(el => {
-      if (cat === 'all') {
-        el.style.display = '';
-      } else {
-        const elCat = el.getAttribute('data-cat');
-        el.style.display = (elCat === cat) ? '' : 'none';
-      }
+      el.getAnimations().forEach(a => a.cancel());
+      const show = cat === 'all' || el.getAttribute('data-cat') === cat;
+      el.style.display = show ? '' : 'none';
+      if (show) shown.push(el);
+    });
+
+    // Si estabas más abajo, regresa al inicio de los resultados (sin que la página brinque)
+    const filters = document.querySelector('.filters');
+    const stickyTop = parseFloat(getComputedStyle(filters).top) || 0;
+    const top = document.querySelector('.content').getBoundingClientRect().top + window.scrollY
+              - stickyTop - filters.offsetHeight;
+    if (window.scrollY > top) window.scrollTo({ top, behavior: 'instant' });
+
+    // Las tarjetas aparecen con un fundido rápido, una tras otra
+    const keyframes = reduceMotion.matches
+      ? [{ opacity: 0 }, { opacity: 1 }]
+      : [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }];
+    shown.slice(0, 12).forEach((el, i) => {
+      el.animate(keyframes, {
+        duration: 250, delay: Math.min(i, 8) * 30,
+        easing: 'cubic-bezier(0.23, 1, 0.32, 1)', fill: 'backwards'
+      });
     });
   }
 

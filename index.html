@@ -16,6 +16,8 @@
     --text:      #0d1b4b;
     --gray:      #6b7a99;
     --border:    #dce3f0;
+    --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -42,13 +44,13 @@
     background:transparent;
     backdrop-filter:blur(0px);
     border-bottom:1px solid transparent;
-    transition:padding 0.4s ease, background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+    transition:background 250ms ease, -webkit-backdrop-filter 250ms ease, backdrop-filter 250ms ease, border-color 250ms ease;
   }
   nav.scrolled {
-    padding:0.6rem 3rem;
-    background:rgba(26,35,126,0.97);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(66,165,245,0.15);
+    background:rgba(26,35,126,0.85);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .nav-logo { display:flex; align-items:center; gap:1rem; }
   .nav-logo img {
@@ -58,14 +60,16 @@
       0 0 0 2px var(--sky),
       0 0 16px rgba(66,165,245,0.4),
       0 4px 16px rgba(0,0,0,0.35);
-    transition:box-shadow 0.3s, transform 0.3s;
+    transition:box-shadow 200ms ease, transform 200ms var(--ease-out);
   }
-  .nav-logo img:hover {
-    box-shadow:
-      0 0 0 2.5px var(--sky),
-      0 0 28px rgba(66,165,245,0.6),
-      0 6px 20px rgba(0,0,0,0.4);
-    transform:scale(1.03);
+  @media (hover:hover) and (pointer:fine) {
+    .nav-logo img:hover {
+      box-shadow:
+        0 0 0 2.5px var(--sky),
+        0 0 28px rgba(66,165,245,0.6),
+        0 6px 20px rgba(0,0,0,0.4);
+      transform:scale(1.03);
+    }
   }
   .nav-brand {
     font-family:'Cormorant Garamond',serif;
@@ -92,21 +96,20 @@
   .nav-links a {
     color:rgba(255,255,255,0.7); text-decoration:none;
     font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
-    transition:color 0.3s; white-space:nowrap;
+    transition:color 200ms ease; white-space:nowrap;
   }
-  .nav-links a:hover { color:var(--sky); }
+  @media (hover:hover) and (pointer:fine) { .nav-links a:hover { color:var(--sky); } }
   .nav-cta {
     background:var(--sky) !important; color:var(--navy) !important;
     padding:0.5rem 1.3rem; border-radius:2px; font-weight:500 !important;
   }
-  .nav-cta:hover { background:var(--blue) !important; color:white !important; }
+  @media (hover:hover) and (pointer:fine) { .nav-cta:hover { background:var(--blue) !important; color:white !important; } }
   .lang-btn {
     background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25);
     color:white; padding:0.4rem 0.9rem; border-radius:2px; cursor:pointer;
     font-size:0.75rem; letter-spacing:0.1em; font-family:'DM Sans',sans-serif;
-    transition:all 0.3s;
   }
-  .lang-btn:hover { background:rgba(255,255,255,0.2); }
+  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:rgba(255,255,255,0.2); } }
 
   /* ── HERO ── */
   .hero {
@@ -138,14 +141,14 @@
     display:flex; gap:3.5rem; width:max-content;
     animation:slide-left 28s linear infinite;
   }
-  .slider-track:hover { animation-play-state:paused; }
+  @media (hover:hover) and (pointer:fine) { .slider-track:hover { animation-play-state:paused; } }
   .slider-item {
     display:flex; align-items:center; gap:0.55rem;
     white-space:nowrap; font-size:0.8rem; font-weight:500;
-    color:var(--navy); opacity:0.55; transition:opacity 0.3s;
+    color:var(--navy); opacity:0.55; transition:opacity 200ms ease;
     letter-spacing:0.03em;
   }
-  .slider-item:hover { opacity:1; }
+  @media (hover:hover) and (pointer:fine) { .slider-item:hover { opacity:1; } }
   .slider-item .si-dot {
     width:6px; height:6px; border-radius:50%;
     background:var(--sky); flex-shrink:0;
@@ -170,7 +173,7 @@
     font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase;
     color:var(--sky); margin-bottom:1.5rem;
     display:flex; align-items:center; gap:0.8rem;
-    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms both;
+    animation:fadeUp 400ms var(--ease-out) 0ms both;
   }
   .hero-eyebrow::before { content:''; width:2rem; height:1px; background:var(--sky); }
   .hero-title {
@@ -178,35 +181,34 @@
     font-size:clamp(2.8rem,4.5vw,4.5rem);
     font-weight:300; color:var(--white); line-height:1.1;
     margin-bottom:0.6rem;
-    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 50ms both;
+    animation:fadeUp 400ms var(--ease-out) 50ms both;
   }
   .hero-title em { font-style:italic; color:var(--sky); }
   .hero-subtitle {
     font-family:'Cormorant Garamond',serif;
     font-size:1.2rem; color:rgba(255,255,255,0.7);
     font-weight:300; letter-spacing:0.06em; margin-bottom:2.5rem;
-    animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 100ms both;
+    animation:fadeUp 400ms var(--ease-out) 100ms both;
   }
-  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 400ms cubic-bezier(0.23, 1, 0.32, 1) 150ms both; }
+  .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 400ms var(--ease-out) 150ms both; }
   .btn-wa {
     background:#25d366; color:white; padding:0.85rem 1.8rem;
     text-decoration:none; font-size:0.85rem; font-weight:500;
     border-radius:2px; display:flex; align-items:center; gap:0.5rem;
-    transition:all 0.3s;
   }
-  .btn-wa:hover { background:#1ebe5d; transform:translateY(-2px); }
+  @media (hover:hover) and (pointer:fine) { .btn-wa:hover { background:#1ebe5d; transform:translateY(-2px); } }
   .btn-doc {
     background:var(--sky); color:var(--navy); padding:0.85rem 1.8rem;
     text-decoration:none; font-size:0.85rem; font-weight:500;
-    border-radius:2px; transition:all 0.3s;
+    border-radius:2px;
   }
-  .btn-doc:hover { background:#64b5f6; transform:translateY(-2px); }
+  @media (hover:hover) and (pointer:fine) { .btn-doc:hover { background:#64b5f6; transform:translateY(-2px); } }
   .hero-right {
     display:flex; align-items:center; justify-content:center;
     padding:5rem 4rem; position:relative; z-index:2;
   }
   .hero-photo-wrap {
-    position:relative; animation:fadeUp 500ms cubic-bezier(0.23, 1, 0.32, 1) 100ms both;
+    position:relative; animation:fadeUp 500ms var(--ease-out) 100ms both;
   }
   .hero-photo-wrap::before {
     content:''; position:absolute;
@@ -292,15 +294,15 @@
   .esp-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(66,165,245,0.1); }
   .esp-card {
     background:rgba(13,27,75,0.8); padding:2rem 1.8rem;
-    transition:background 0.3s; position:relative; overflow:hidden;
+    transition:background 200ms ease; position:relative; overflow:hidden;
   }
   .esp-card::after {
     content:''; position:absolute; bottom:0; left:0; right:0;
     height:2px; background:var(--sky);
-    transform:scaleX(0); transition:transform 0.4s; transform-origin:left;
+    transform:scaleX(0); transition:transform 300ms var(--ease-out); transform-origin:left;
   }
-  .esp-card:hover { background:rgba(21,101,192,0.15); }
-  .esp-card:hover::after { transform:scaleX(1); }
+  @media (hover:hover) and (pointer:fine) { .esp-card:hover { background:rgba(21,101,192,0.15); } }
+  @media (hover:hover) and (pointer:fine) { .esp-card:hover::after { transform:scaleX(1); } }
   .esp-num {
     font-family:'Cormorant Garamond',serif; font-size:2.5rem;
     color:rgba(66,165,245,0.12); font-weight:300; line-height:1; margin-bottom:0.8rem;
@@ -379,9 +381,9 @@
   .rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
   .rev-card {
     background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-    padding:2rem; border-radius:2px; transition:border-color 0.3s;
+    padding:2rem; border-radius:2px; transition:border-color 200ms ease;
   }
-  .rev-card:hover { border-color:rgba(66,165,245,0.3); }
+  @media (hover:hover) and (pointer:fine) { .rev-card:hover { border-color:rgba(66,165,245,0.3); } }
   .rev-stars { color:var(--sky); font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1rem; }
   .rev-text {
     font-family:'Cormorant Garamond',serif; font-size:1.05rem;
@@ -407,17 +409,15 @@
     display:flex; align-items:center; gap:1rem;
     background:#25d366; color:white; padding:1.2rem 2rem;
     text-decoration:none; border-radius:2px; font-size:0.9rem; font-weight:500;
-    transition:all 0.3s;
   }
-  .btn-wa-big:hover { background:#1ebe5d; transform:translateY(-2px); }
+  @media (hover:hover) and (pointer:fine) { .btn-wa-big:hover { background:#1ebe5d; transform:translateY(-2px); } }
   .btn-wa-big .btn-icon { font-size:1.4rem; }
   .btn-doc-big {
     display:flex; align-items:center; gap:1rem;
     background:var(--blue); color:white; padding:1.2rem 2rem;
     text-decoration:none; border-radius:2px; font-size:0.9rem; font-weight:500;
-    transition:all 0.3s;
   }
-  .btn-doc-big:hover { background:var(--navy); transform:translateY(-2px); }
+  @media (hover:hover) and (pointer:fine) { .btn-doc-big:hover { background:var(--navy); transform:translateY(-2px); } }
   .btn-doc-big .btn-icon { font-size:1.4rem; }
   .btn-sub { font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; }
   .contact-info { margin-top:2.5rem; }
@@ -458,7 +458,7 @@
   .hamburger span {
     display:block; width:24px; height:2px;
     background:#fff; border-radius:2px;
-    transition:transform 260ms cubic-bezier(0.32, 0.72, 0, 1), opacity 180ms ease-out;
+    transition:transform 260ms var(--ease-drawer), opacity 180ms ease-out;
   }
   /* ☰ → ✕ (7px = barra de 2px + espacio de 5px) */
   .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
@@ -474,12 +474,12 @@
       /* cerrado: enrollado contra la barra */
       opacity:0; visibility:hidden; pointer-events:none;
       clip-path:inset(0 0 100% 0); transform:translateY(-6px);
-      transition:clip-path 200ms cubic-bezier(0.32, 0.72, 0, 1), transform 200ms cubic-bezier(0.32, 0.72, 0, 1), opacity 150ms ease-out, visibility 0s 200ms;
+      transition:clip-path 200ms var(--ease-drawer), transform 200ms var(--ease-drawer), opacity 150ms ease-out, visibility 0s 200ms;
     }
     .nav-links.open {
       opacity:1; visibility:visible; pointer-events:auto;
       clip-path:inset(0 0 0 0); transform:none;
-      transition:clip-path 260ms cubic-bezier(0.32, 0.72, 0, 1), transform 260ms cubic-bezier(0.32, 0.72, 0, 1), opacity 180ms ease-out, visibility 0s;
+      transition:clip-path 260ms var(--ease-drawer), transform 260ms var(--ease-drawer), opacity 180ms ease-out, visibility 0s;
     }
     .nav-links li { width:100%; }
     .nav-links a { display:block; padding:0.6rem 0; font-size:0.85rem; border-bottom:1px solid rgba(66,165,245,0.1); }
@@ -504,17 +504,17 @@
   }
   /* al soltar: regresa en 160ms (antes heredaba "all 0.3s" o no tenía transición) */
   .btn-wa, .btn-doc, .btn-wa-big, .btn-doc-big, .nav-links a.nav-cta, .lang-btn {
-    transition:transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background 0.3s, color 0.3s, border-color 0.3s;
+    transition:transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   }
   .btn-wa:active, .btn-doc:active, .btn-wa-big:active, .btn-doc-big:active,
   .nav-cta:active, .lang-btn:active {
     transform:scale(0.97);
-    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), background 0.3s, color 0.3s, border-color 0.3s;
+    transition:transform 100ms var(--ease-out), background-color 200ms ease, color 200ms ease, border-color 200ms ease;
   }
-  .hamburger { transition:transform 160ms cubic-bezier(0.23, 1, 0.32, 1), opacity 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .hamburger { transition:transform 160ms var(--ease-out), opacity 160ms var(--ease-out); }
   .hamburger:active {
     transform:scale(0.95); opacity:0.7;
-    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), opacity 100ms;
+    transition:transform 100ms var(--ease-out), opacity 100ms;
   }
 
   /* ── MOBILE MENU · REDUCED MOTION ── */
@@ -533,6 +533,11 @@
     .nav-logo img:hover,
     .btn-wa:hover:not(:active), .btn-doc:hover:not(:active),
     .btn-wa-big:hover:not(:active), .btn-doc-big:hover:not(:active) { transform:none; }
+  }
+
+  /* ── REDUCED TRANSPARENCY ── */
+  @media (prefers-reduced-transparency:reduce) {
+    nav.scrolled { background:rgba(26,35,126,0.97); -webkit-backdrop-filter:none; backdrop-filter:none; }
   }
 </style>
 </head>
@@ -610,7 +615,7 @@
   <p class="slider-label lang-en">Affiliations & institutions</p>
   <div class="slider-track-wrap">
     <div class="slider-track">
-      <span class="slider-item"><span class="si-dot"></span>INMEGEN</span>
+      <span class="slider-item"><span class="si-dot"></span>Géntodos</span>
       <span class="slider-item"><span class="si-dot"></span>Centro Médico ABC</span>
       <span class="slider-item"><span class="si-dot"></span>UNAM</span>
       <span class="slider-item"><span class="si-dot"></span>ACMG</span>
@@ -623,7 +628,7 @@
       <span class="slider-item"><span class="si-dot"></span>Face2Gene</span>
       <span class="slider-item"><span class="si-dot"></span>FEMEXER</span>
       <!-- duplicate for seamless loop -->
-      <span class="slider-item"><span class="si-dot"></span>INMEGEN</span>
+      <span class="slider-item"><span class="si-dot"></span>Géntodos</span>
       <span class="slider-item"><span class="si-dot"></span>Centro Médico ABC</span>
       <span class="slider-item"><span class="si-dot"></span>UNAM</span>
       <span class="slider-item"><span class="si-dot"></span>ACMG</span>
@@ -754,10 +759,10 @@
           I work with patients and families at every stage of life: from prenatal diagnosis and genetic conditions in newborns and children to oncogenetics, connective tissue disorders and rare diseases. In every case, an accurate diagnosis matters as much as listening to you and making sure you understand each step.
         </p>
         <p class="lang-es">
-          Actualmente soy Subdirector de Investigación Médica en el Instituto Nacional de Medicina Genómica (INMEGEN), Profesor Titular de la Alta Especialidad en Enfermedades Hereditarias avalada por la UNAM y Presidente de la Práctica Médica Grupal de Genética del Centro Médico ABC. He publicado artículos en revistas médicas nacionales e internacionales y he participado como ponente en congresos de la especialidad en distintos países.
+          Actualmente soy Director Médico de Géntodos, un laboratorio mexicano de estudios genómicos y genéticos. También soy Profesor Titular de la Alta Especialidad en Enfermedades Hereditarias avalada por la UNAM y Presidente de la Práctica Médica Grupal de Genética del Centro Médico ABC. Antes fui Subdirector de Investigación Médica en el Instituto Nacional de Medicina Genómica (INMEGEN). He publicado artículos en revistas médicas nacionales e internacionales y he participado como ponente en congresos de la especialidad en distintos países.
         </p>
         <p class="lang-en">
-          I currently serve as Deputy Director of Medical Research at the National Institute of Genomic Medicine (INMEGEN), Professor of the UNAM-endorsed Postgraduate Program in Hereditary Diseases, and President of the Group Medical Practice of Genetics at Centro Médico ABC. I have published in national and international medical journals and have spoken at specialty congresses in several countries.
+          I currently serve as Medical Director of Géntodos, a Mexican genomic and genetic testing laboratory. I am also Professor of the UNAM-endorsed Postgraduate Program in Hereditary Diseases and President of the Group Medical Practice of Genetics at Centro Médico ABC. I previously served as Deputy Director of Medical Research at the National Institute of Genomic Medicine (INMEGEN). I have published in national and international medical journals and have spoken at specialty congresses in several countries.
         </p>
         <div class="tags">
           <span class="tag lang-es">Genética Clínica</span>
@@ -850,9 +855,9 @@
         </h2>
         <div class="timeline">
           <div class="tl-item">
-            <div class="tl-role lang-es">Subdirector de Investigación Médica</div>
-            <div class="tl-role lang-en">Deputy Director of Medical Research</div>
-            <div class="tl-where">Instituto Nacional de Medicina Genómica (INMEGEN)</div>
+            <div class="tl-role lang-es">Director Médico</div>
+            <div class="tl-role lang-en">Medical Director</div>
+            <div class="tl-where"><a href="https://gentodos.com/" target="_blank" rel="noopener" style="color:inherit;">Géntodos</a></div>
           </div>
           <div class="tl-item">
             <div class="tl-role lang-es">Profesor Titular — Alta Especialidad en Enfermedades Hereditarias</div>
