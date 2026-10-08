@@ -457,15 +457,30 @@
   }
   .hamburger span {
     display:block; width:24px; height:2px;
-    background:#fff; border-radius:2px; transition:all 0.3s;
+    background:#fff; border-radius:2px;
+    transition:transform 260ms cubic-bezier(0.32, 0.72, 0, 1), opacity 180ms ease-out;
   }
+  /* ☰ → ✕ (7px = barra de 2px + espacio de 5px) */
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0.2); }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
   /* ── RESPONSIVE ── */
   @media (max-width:960px) {
     nav { padding:1rem 1.5rem; }
     .hamburger { display:flex; }
-    .nav-links { display:none; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(26,35,126,0.97); backdrop-filter:blur(16px); padding:1.2rem 1.5rem; gap:0.5rem; border-top:1px solid rgba(66,165,245,0.15); }
-    .nav-links.open { display:flex; }
+    .nav-links {
+      display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(26,35,126,0.97); backdrop-filter:blur(16px); padding:1.2rem 1.5rem; gap:0.5rem; border-top:1px solid rgba(66,165,245,0.15);
+      /* cerrado: enrollado contra la barra */
+      opacity:0; visibility:hidden; pointer-events:none;
+      clip-path:inset(0 0 100% 0); transform:translateY(-6px);
+      transition:clip-path 200ms cubic-bezier(0.32, 0.72, 0, 1), transform 200ms cubic-bezier(0.32, 0.72, 0, 1), opacity 150ms ease-out, visibility 0s 200ms;
+    }
+    .nav-links.open {
+      opacity:1; visibility:visible; pointer-events:auto;
+      clip-path:inset(0 0 0 0); transform:none;
+      transition:clip-path 260ms cubic-bezier(0.32, 0.72, 0, 1), transform 260ms cubic-bezier(0.32, 0.72, 0, 1), opacity 180ms ease-out, visibility 0s;
+    }
     .nav-links li { width:100%; }
     .nav-links a { display:block; padding:0.6rem 0; font-size:0.85rem; border-bottom:1px solid rgba(66,165,245,0.1); }
     .nav-links .nav-cta { display:inline-block; margin-top:0.5rem; border-bottom:none; }
@@ -497,6 +512,13 @@
     transform:scale(0.95); opacity:0.7;
     transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), opacity 100ms;
   }
+
+  /* ── MOBILE MENU · REDUCED MOTION ── */
+  @media (max-width:960px) and (prefers-reduced-motion:reduce) {
+    .nav-links { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s 150ms; }
+    .nav-links.open { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s; }
+    .hamburger span { transition:none; }
+  }
 </style>
 </head>
 <body>
@@ -515,7 +537,7 @@
       <span class="nav-brand-sub"><span class="lang-es">Médico Genetista · CDMX</span><span class="lang-en">Medical Geneticist · CDMX</span></span>
     </div>
   </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
@@ -1096,14 +1118,18 @@
 </footer>
 
 <script>
+  function setMenu(open) {
+    document.querySelector('.nav-links').classList.toggle('open', open);
+    const btn = document.querySelector('.hamburger');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  }
   function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('open');
+    setMenu(!document.querySelector('.nav-links').classList.contains('open'));
   }
   // Cierra el menú al hacer click en un link
   document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.remove('open');
-    });
+    link.addEventListener('click', () => setMenu(false));
   });
 
   function toggleLang() {
