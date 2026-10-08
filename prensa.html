@@ -224,6 +224,19 @@
     .cards-grid { grid-template-columns:1fr; }
     .footer-inner { padding:0 1.5rem; flex-direction:column; text-align:center; }
   }
+
+  /* ── PRESS FEEDBACK ── */
+  .filter-btn, .lang-btn, .card-link, .nav-back {
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  }
+  .filter-btn:active, .lang-btn:active {
+    transform:scale(0.97);
+    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), background 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .card-link:active, .nav-back:active {
+    opacity:0.6;
+    transition:opacity 100ms, color 0.2s;
+  }
 </style>
 </head>
 <body>
@@ -665,6 +678,9 @@
       }
     });
   }
+
+  // Hace que iPhone muestre el efecto al presionar (:active)
+  document.addEventListener('touchstart', () => {}, { passive: true });
 </script>
 
 </body>

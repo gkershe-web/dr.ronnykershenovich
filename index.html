@@ -482,6 +482,21 @@
     .footer-inner { flex-direction:column; gap:1rem; text-align:center; }
     .footer-cedulas { text-align:center; }
   }
+
+  /* ── PRESS FEEDBACK ── */
+  .btn-wa, .btn-doc, .btn-wa-big, .btn-doc-big, .nav-cta, .lang-btn, .hamburger {
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  }
+  .btn-wa:active, .btn-doc:active, .btn-wa-big:active, .btn-doc-big:active,
+  .nav-cta:active, .lang-btn:active {
+    transform:scale(0.97);
+    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), background 0.3s, color 0.3s;
+  }
+  .hamburger { transition:transform 0.3s, opacity 0.3s; }
+  .hamburger:active {
+    transform:scale(0.95); opacity:0.7;
+    transition:transform 100ms cubic-bezier(0.23, 1, 0.32, 1), opacity 100ms;
+  }
 </style>
 </head>
 <body>
@@ -1103,6 +1118,8 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
+  // Hace que iPhone muestre el efecto al presionar (:active)
+  document.addEventListener('touchstart', () => {}, { passive: true });
 
 </script>
 
