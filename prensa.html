@@ -14,7 +14,7 @@
     --bg-light: #f4f7fb;
     --white:    #ffffff;
     --text:     #0d1b4b;
-    --gray:     #6b7a99;
+    --gray:     #56637f;
     --border:   #dce3f0;
     --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
@@ -151,7 +151,7 @@
   }
   .card-type {
     font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--sky); margin-bottom:0.6rem;
+    color:var(--blue); margin-bottom:0.6rem;
     display:flex; align-items:center; gap:0.4rem;
   }
   .card-type::before {
@@ -270,6 +270,12 @@
   @media (prefers-reduced-transparency:reduce) {
     nav { background:rgba(26,35,126,0.97); -webkit-backdrop-filter:none; backdrop-filter:none; }
   }
+
+  /* ── LEGIBILIDAD: tamaños mínimos (impeccable / taste-skill) ── */
+  .nav-brand-sub, .card-type, .badge { font-size:0.75rem; }
+  .page-header p, .card-desc { font-size:1rem; }
+  .card-meta, .card-link, .filter-btn, .footer-back { font-size:0.85rem; }
+  .nav-brand-sub { color:#90caf9; }
 </style>
 </head>
 <body>
@@ -298,7 +304,6 @@
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <p class="page-tag"><span class="lang-es">Presencia Pública</span><span class="lang-en">Public Presence</span></p>
   <h1><span class="lang-es">En los <em>Medios</em></span><span class="lang-en">In the <em>Media</em></span></h1>
   <p><span class="lang-es">Entrevistas, publicaciones científicas, artículos de divulgación, videos y reconocimientos a lo largo de mi trayectoria.</span><span class="lang-en">Interviews, scientific publications, articles, videos and recognitions from throughout my career.</span></p>
 </div>
@@ -590,7 +595,7 @@
         <div class="card-title">13ª Edición COINER — Congreso Internacional de Enfermedades Raras</div>
         <div class="card-meta">COINER <span class="dot">·</span> Nov 2022 <span class="badge badge-sky" style="margin-left:0.3rem">Presidente del Comité Científico</span></div>
       </div>
-      <div class="card-desc">Presidí el Comité Científico del 13° Congreso Internacional de Enfermedades Raras, el encuentro más importante del sector en México y Latinoamérica.</div>
+      <div class="card-desc">Presidí el Comité Científico del 13° Congreso Internacional de Enfermedades Raras.</div>
       <div class="card-footer">
         <a href="https://www.prnewswire.com/news-releases/con-gran-exito-se-llevo-a-cabo-la-inauguracion-de-la-decimotercera-edicion-del-congreso-internacional-de-enfermedades-raras-868000958.html" target="_blank" class="card-link">
           Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
