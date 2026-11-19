@@ -2,26 +2,59 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="description" content="Entrevistas, publicaciones científicas, artículos, videos y reconocimientos del Dr. Ronny Kershenovich Sefchovich, médico genetista.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>En los Medios — Dr. Ronny Kershenovich Sefchovich</title>
+<title>En los Medios | Dr. Ronny Kershenovich Sefchovich</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* Hallmark · checked: 2026-11-19 · genre: editorial (inferred)
+ * floor: 0 FAIL · fixed: 3, 6a, 7a, 7b, 19, 26a, 26b, 28b, 33, 34, 38i, 38ii, 38iii, 48, 50, 62, 63, 67, F1, F3, F4, F6, F23 · structural: printed (8, 42, 58)
+ * built: the project · redesign: polish · v2.0.0 */
+ /* Hallmark · waive 24b · calc padding on the page header · the press header clears a nav whose height the script measures */
+ /* Hallmark · dismissed 49 · the count adds the hidden English twin of each bilingual label; the visible filter pills and logo link wrap cleanly */
   :root {
+    --sky-soft: #90caf9;
     --navy:     #1a237e;
     --blue:     #1565c0;
     --sky:      #42a5f5;
     --bg-light: #f4f7fb;
-    --white:    #ffffff;
+    --white:    #f7f9ff;
     --text:     #0d1b4b;
     --gray:     #56637f;
     --border:   #dce3f0;
     --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+      --font-body:    'DM Sans', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --black-a35: rgba(0,0,0,0.35);
+    --blue-a12: rgba(21,101,192,0.12);
+    --c-2e7d32: #2e7d32;
+    --c-388e3c-a10: rgba(56,142,60,0.1);
+    --c-3a4a6b: #3a4a6b;
+    --c-b8860b: #b8860b;
+    --c-ffc107-a10: rgba(255,193,7,0.1);
+    --navy-a03: rgba(26,35,126,0.03);
+    --navy-a85: rgba(26,35,126,0.85);
+    --navy-a88: rgba(26,35,126,0.88);
+    --navy-a97: rgba(26,35,126,0.97);
+    --navy-deep-a88: rgba(13,27,110,0.88);
+    --sky-a04: rgba(66,165,245,0.04);
+    --sky-a10: rgba(66,165,245,0.1);
+    --sky-a15: rgba(66,165,245,0.15);
+    --sky-a30: rgba(66,165,245,0.3);
+    --sky-a50: rgba(66,165,245,0.5);
+    --white-a08: rgba(255,255,255,0.08);
+    --white-a10: rgba(255,255,255,0.1);
+    --white-a55: rgba(255,255,255,0.55);
+    --white-a60: rgba(255,255,255,0.6);
+    --white-a70: rgba(255,255,255,0.7);
+    --white-a85: rgba(255,255,255,0.85);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'DM Sans',sans-serif; background:var(--bg-light); color:var(--text); overflow-x:hidden; }
+  html { scroll-behavior:smooth; overflow-x:clip; }
+  body { font-family:var(--font-body); background:var(--bg-light); color:var(--text); overflow-x:clip; }
 
   /* ── GLOBAL DNA VIDEO ── */
   #dna-bg {
@@ -35,34 +68,34 @@
     position:fixed; top:0; left:0; right:0; z-index:200;
     display:flex; justify-content:space-between; align-items:center;
     padding:0.75rem 4rem;
-    background:rgba(26,35,126,0.85);
+    background:var(--navy-a85);
     -webkit-backdrop-filter:blur(20px) saturate(180%);
     backdrop-filter:blur(20px) saturate(180%);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid var(--white-a08);
   }
   .nav-logo { display:flex; align-items:center; gap:1rem; text-decoration:none; }
   .nav-logo img {
     height:72px; border-radius:6px;
-    box-shadow:0 0 0 2px var(--sky), 0 0 20px rgba(66,165,245,0.45);
+    box-shadow: 0 0 0 2px var(--sky), 0 4px 16px var(--black-a35);
   }
-  .nav-brand { font-family:'Cormorant Garamond',serif; }
-  .nav-brand-name { display:block; font-size:1.05rem; font-weight:400; color:#fff; letter-spacing:0.04em; }
-  .nav-brand-sub  { display:block; font-size:0.68rem; color:var(--sky); letter-spacing:0.12em; text-transform:uppercase; margin-top:0.1rem; }
+  .nav-brand { font-family:var(--font-display); }
+  .nav-brand-name { display:block; font-size:1.05rem; font-weight:400; color:var(--white); letter-spacing:0.04em; }
+  .nav-brand-sub  { display:block; font-size:0.68rem; color:var(--sky); margin-top:0.1rem; }
   .nav-back {
-    color:rgba(255,255,255,0.7); text-decoration:none;
-    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--white-a70); text-decoration:none;
+    font-size:0.78rem;
     display:flex; align-items:center; gap:0.5rem; transition:color 0.3s;
   }
   @media (hover:hover) and (pointer:fine) { .nav-back:hover { color:var(--sky); } }
   .nav-right { display:flex; align-items:center; gap:1rem; }
   .lang-btn {
-    background:transparent; border:1px solid rgba(66,165,245,0.5);
-    color:rgba(255,255,255,0.85); padding:0.35rem 0.9rem;
-    border-radius:20px; font-size:0.72rem; letter-spacing:0.08em;
-    cursor:pointer; font-family:'DM Sans',sans-serif;
+    background:transparent; border:1px solid var(--sky-a50);
+    color:var(--white-a85); padding:0.35rem 0.9rem;
+    border-radius:20px; font-size:0.72rem;
+    cursor:pointer; font-family:var(--font-body);
     white-space:nowrap;
   }
-  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:rgba(66,165,245,0.15); border-color:var(--sky); color:#fff; } }
+  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:var(--sky-a15); border-color:var(--sky); color:var(--white); } }
   /* bilingual toggle */
   body .lang-en { display:none; }
   body.en .lang-es { display:none; }
@@ -72,22 +105,21 @@
   .page-header {
     min-height:38vh; display:flex; flex-direction:column;
     justify-content:flex-end; padding:8rem 4rem 4rem;
-    background:linear-gradient(135deg, rgba(26,35,126,0.88) 0%, rgba(13,27,110,0.88) 100%);
+    background:linear-gradient(135deg, var(--navy-a88) 0%, var(--navy-deep-a88) 100%);
     position:relative; z-index:1;
   }
   .page-tag {
-    font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase;
+    font-size:0.68rem;
     color:var(--sky); margin-bottom:1rem;
     display:flex; align-items:center; gap:0.7rem;
   }
   .page-tag::before { content:''; width:1.5rem; height:1px; background:var(--sky); }
   .page-header h1 {
-    font-family:'Cormorant Garamond',serif;
+    font-family:var(--font-display);
     font-size:clamp(2.5rem,5vw,4rem); font-weight:300;
     color:var(--white); line-height:1.1; margin-bottom:1rem;
   }
-  .page-header h1 em { font-style:italic; color:var(--sky); }
-  .page-header p { font-size:0.9rem; color:rgba(255,255,255,0.55); max-width:540px; line-height:1.7; }
+  .page-header p { font-size:0.9rem; color:var(--white-a55); max-width:540px; line-height:1.7; }
 
   /* ── FILTERS ── */
   .filters {
@@ -99,10 +131,10 @@
   .filter-btn {
     background:transparent; border:1px solid var(--border);
     color:var(--gray); padding:0.4rem 1rem; border-radius:20px;
-    font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif;
+    font-size:0.78rem; cursor:pointer; font-family:var(--font-body);
   }
-  .filter-btn.active { background:var(--navy); border-color:var(--navy); color:white; }
-  @media (hover:hover) and (pointer:fine) { .filter-btn:hover { background:var(--navy); border-color:var(--navy); color:white; } }
+  .filter-btn.active { background:var(--navy); border-color:var(--navy); color:var(--white); }
+  @media (hover:hover) and (pointer:fine) { .filter-btn:hover { background:var(--navy); border-color:var(--navy); color:var(--white); } }
 
   /* ── MAIN CONTENT ── */
   .content { max-width:1200px; margin:0 auto; padding:4rem; position:relative; z-index:1; }
@@ -120,10 +152,9 @@
     color:var(--sky);
   }
   .cat-title {
-    font-family:'Cormorant Garamond',serif;
+    font-family:var(--font-display);
     font-size:1.6rem; font-weight:300; color:var(--navy);
   }
-  .cat-title em { font-style:italic; color:var(--blue); }
   .cat-line { flex:1; height:1px; background:var(--border); }
 
   /* ── CARDS GRID ── */
@@ -141,7 +172,7 @@
   }
   @media (hover:hover) and (pointer:fine) {
     .card:hover {
-      box-shadow:0 8px 32px rgba(21,101,192,0.12);
+      box-shadow:0 8px 32px var(--blue-a12);
       border-color:var(--sky);
       transform:translateY(-3px);
     }
@@ -150,7 +181,7 @@
     padding:1.4rem 1.4rem 0;
   }
   .card-type {
-    font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+    font-size:0.65rem;
     color:var(--blue); margin-bottom:0.6rem;
     display:flex; align-items:center; gap:0.4rem;
   }
@@ -158,7 +189,7 @@
     content:''; width:16px; height:1px; background:var(--sky);
   }
   .card-title {
-    font-family:'Cormorant Garamond',serif;
+    font-family:var(--font-display);
     font-size:1.1rem; font-weight:400; color:var(--navy);
     line-height:1.4; margin-bottom:0.5rem;
   }
@@ -169,7 +200,7 @@
   .card-meta .dot { color:var(--border); }
   .card-desc {
     padding:0.8rem 1.4rem 0;
-    font-size:0.82rem; color:#3a4a6b; line-height:1.65; flex:1;
+    font-size:0.82rem; color:var(--c-3a4a6b); line-height:1.65; flex:1;
   }
   .card-footer {
     padding:1rem 1.4rem 1.4rem; margin-top:auto;
@@ -177,7 +208,7 @@
   .card-link {
     display:inline-flex; align-items:center; gap:0.4rem;
     font-size:0.75rem; color:var(--blue); text-decoration:none;
-    font-weight:500; letter-spacing:0.04em;
+    font-weight:500;
     transition:color 0.2s;
   }
   @media (hover:hover) and (pointer:fine) { .card-link:hover { color:var(--navy); } }
@@ -185,20 +216,19 @@
 
   /* ── HIGHLIGHT CARD (featured) ── */
   .card.featured {
-    border-color:rgba(66,165,245,0.3);
-    background:linear-gradient(135deg, rgba(26,35,126,0.03) 0%, rgba(66,165,245,0.04) 100%);
+    border-color:var(--sky-a30);
+    background:linear-gradient(135deg, var(--navy-a03) 0%, var(--sky-a04) 100%);
   }
   .card.featured .card-title { font-size:1.2rem; }
 
   /* ── BADGE ── */
   .badge {
-    display:inline-block; font-size:0.65rem; letter-spacing:0.1em;
-    text-transform:uppercase; padding:0.2rem 0.6rem; border-radius:20px;
+    display:inline-block; font-size:0.65rem; padding:0.2rem 0.6rem; border-radius:20px;
     font-weight:500;
   }
-  .badge-sky   { background:rgba(66,165,245,0.1); color:var(--blue); }
-  .badge-gold  { background:rgba(255,193,7,0.1); color:#b8860b; }
-  .badge-green { background:rgba(56,142,60,0.1); color:#2e7d32; }
+  .badge-sky   { background:var(--sky-a10); color:var(--blue); }
+  .badge-gold  { background:var(--c-ffc107-a10); color:var(--c-b8860b); }
+  .badge-green { background:var(--c-388e3c-a10); color:var(--c-2e7d32); }
 
   /* ── BACK TO TOP ── */
   .back-top {
@@ -211,14 +241,16 @@
   /* ── FOOTER ── */
   footer {
     background:var(--navy); padding:2rem 0;
-    border-top:1px solid rgba(66,165,245,0.1);
+    border-top:1px solid var(--sky-a10);
     position:relative; z-index:1;
   }
   .footer-inner { max-width:1200px; margin:0 auto; padding:0 4rem;
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
-  .footer-brand { font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:rgba(255,255,255,0.6); }
+  .footer-brand { font-family:var(--font-display); font-size:0.9rem; color:var(--white-a60); }
   .footer-back { font-size:0.75rem; }
   .footer-back a { color:var(--sky); text-decoration:none; }
+  .footer-legal { max-width:1200px; margin:1.5rem auto 0; padding:1.25rem 1.5rem 0; border-top:1px solid var(--white-a10); font-size:0.8rem; color:var(--white-a60); text-align:center; line-height:1.6; }
+  .footer-legal a { color:var(--sky-soft); }
 
   @media (max-width:768px) {
     nav { padding:0.6rem 1rem; gap:0.75rem; }
@@ -227,11 +259,11 @@
     .nav-brand-name { font-size:0.92rem; line-height:1.2; }
     .nav-brand-sub { display:none; }
     .nav-right { gap:0.6rem; flex-shrink:0; }
-    .nav-back { font-size:0.72rem; letter-spacing:0.06em; white-space:nowrap; }
+    .nav-back { font-size:0.72rem; white-space:nowrap; }
     .page-header { padding:calc(var(--nav-h, 70px) + 2rem) 1.5rem 3rem; }
     .filters { padding:1rem 1.5rem; }
     .content { padding:2.5rem 1.5rem; }
-    .cards-grid { grid-template-columns:1fr; }
+    .cards-grid { grid-template-columns:minmax(0, 1fr); }
     .footer-inner { padding:0 1.5rem; flex-direction:column; text-align:center; }
   }
 
@@ -268,20 +300,28 @@
 
   /* ── REDUCED TRANSPARENCY ── */
   @media (prefers-reduced-transparency:reduce) {
-    nav { background:rgba(26,35,126,0.97); -webkit-backdrop-filter:none; backdrop-filter:none; }
+    nav { background:var(--navy-a97); -webkit-backdrop-filter:none; backdrop-filter:none; }
   }
 
   /* ── LEGIBILIDAD: tamaños mínimos (impeccable / taste-skill) ── */
   .nav-brand-sub, .card-type, .badge { font-size:0.75rem; }
   .page-header p, .card-desc { font-size:1rem; }
   .card-meta, .card-link, .filter-btn, .footer-back { font-size:0.85rem; }
-  .nav-brand-sub { color:#90caf9; }
+  .nav-brand-sub { color:var(--sky-soft); }
+
+  /* ── HALLMARK POLISH ── */
+  h1, h2, h3 { overflow-wrap:break-word; min-width:0; text-wrap:balance; }
+  :where(a, button, [tabindex]):focus-visible { outline:2px solid var(--blue); outline-offset:3px; transition:none; }
+  :where(nav, .hero, .especialidades, .resenas, footer, .page-header, header) :where(a, button):focus-visible { outline-color:var(--sky-soft); }
+  button:disabled { opacity:0.5; cursor:not-allowed; }
+  footer { color:var(--white-a70); }
+  .nav-brand-sub, .card-type, .badge, .nav-back { font-size:0.85rem; }
 </style>
 </head>
 <body>
 
-<video id="dna-bg" autoplay loop muted playsinline>
-  <source src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477" type="video/mp4">
+<video id="dna-bg" autoplay loop muted playsinline poster="dna-poster.jpg">
+  <source src="dna-small.mp4" type="video/mp4">
 </video>
 
 <!-- NAV -->
@@ -290,21 +330,21 @@
     <img src="WhatsApp%20Image%202026-04-03%20at%2014.50.36.jpeg" alt="Logo">
     <div class="nav-brand">
       <span class="nav-brand-name">Dr. Ronny Kershenovich Sefchovich</span>
-      <span class="nav-brand-sub">Médico Genetista · CDMX</span>
+      <span class="nav-brand-sub">Médico Genetista, CDMX</span>
     </div>
   </a>
   <div class="nav-right">
     <a href="index.html" class="nav-back">
-      <span class="lang-es"><span class="nb-long">← Regresar al sitio</span><span class="nb-short">← Inicio</span></span>
-      <span class="lang-en"><span class="nb-long">← Back to site</span><span class="nb-short">← Home</span></span>
+      <span class="lang-es"><span class="nb-long">Regresar al sitio</span><span class="nb-short">Inicio</span></span>
+      <span class="lang-en"><span class="nb-long">Back to site</span><span class="nb-short">Home</span></span>
     </a>
-    <button class="lang-btn" onclick="toggleLang()">EN / ES</button>
+    <button class="lang-btn" onclick="toggleLang()"><span class="lang-es" lang="en">English</span><span class="lang-en" lang="es">Español</span></button>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <h1><span class="lang-es">En los <em>Medios</em></span><span class="lang-en">In the <em>Media</em></span></h1>
+  <h1><span class="lang-es">En los Medios</span><span class="lang-en">In the Media</span></h1>
   <p><span class="lang-es">Entrevistas, publicaciones científicas, artículos de divulgación, videos y reconocimientos a lo largo de mi trayectoria.</span><span class="lang-en">Interviews, scientific publications, articles, videos and recognitions from throughout my career.</span></p>
 </div>
 
@@ -324,92 +364,92 @@
 
   <!-- PRENSA -->
   <div class="cat-heading" data-cat="prensa">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></div>
-    <h2 class="cat-title">Prensa y <em>Medios</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></div>
+    <h2 class="cat-title">Prensa y Medios</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card featured" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Reportaje · UNO TV</div>
+        <div class="card-type">Reportaje, UNO TV</div>
         <div class="card-title">INMEGEN hace pruebas genéticas para conocer tendencia a padecer cáncer de mama</div>
-        <div class="card-meta">UNO TV <span class="dot">·</span> Oct 2022</div>
+        <div class="card-meta">UNO TV, Oct 2022</div>
       </div>
       <div class="card-desc">Explico el programa eVA del INMEGEN: análisis de 144 genes para detectar variantes de riesgo hereditario de cáncer en la población mexicana.</div>
       <div class="card-footer">
-        <a href="https://www.unotv.com/reportajes-especiales/inmegen-hace-pruebas-geneticas-para-conocer-tendencia-a-padecer-cancer-de-mama/" target="_blank" class="card-link">
-          Ver reportaje <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.unotv.com/reportajes-especiales/inmegen-hace-pruebas-geneticas-para-conocer-tendencia-a-padecer-cancer-de-mama/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver reportaje <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Artículo · El Heraldo de México</div>
+        <div class="card-type">Artículo, El Heraldo de México</div>
         <div class="card-title">INMEGEN intenta cambiar la historia familiar</div>
-        <div class="card-meta">El Heraldo de México <span class="dot">·</span> Mar 2026</div>
+        <div class="card-meta">El Heraldo de México, Mar 2026</div>
       </div>
       <div class="card-desc">Hablo sobre la importancia de detectar variantes genéticas de riesgo para prevenir el cáncer y cambiar el destino de familias en México.</div>
       <div class="card-footer">
-        <a href="https://heraldodemexico.com.mx/edicion-impresa/2026/3/4/inmegen-intenta-cambiar-historia-familiar-775578.html" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://heraldodemexico.com.mx/edicion-impresa/2026/3/4/inmegen-intenta-cambiar-historia-familiar-775578.html" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Artículo · Argon México</div>
+        <div class="card-type">Artículo, Argon México</div>
         <div class="card-title">Síndrome de Prader-Willi, enfermedad rara que se puede controlar</div>
-        <div class="card-meta">Argon México <span class="dot">·</span> May 2022</div>
+        <div class="card-meta">Argon México, May 2022</div>
       </div>
       <div class="card-desc">Soy la fuente principal del artículo: explico la alteración en el cromosoma 15, su diagnóstico clínico y las opciones de manejo para pacientes con Prader-Willi.</div>
       <div class="card-footer">
-        <a href="https://argonmexico.com/2022/05/30/sindrome-de-prader-willi-enfermedad-rara-que-se-puede-controlar/" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://argonmexico.com/2022/05/30/sindrome-de-prader-willi-enfermedad-rara-que-se-puede-controlar/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Artículo · N24 / La Neta Neta</div>
+        <div class="card-type">Artículo, N24 / La Neta Neta</div>
         <div class="card-title">Harán pruebas genéticas gratuitas para detectar riesgo de cáncer</div>
-        <div class="card-meta">N24 · La Neta Neta <span class="dot">·</span> Oct 2022</div>
+        <div class="card-meta">N24, La Neta Neta, Oct 2022</div>
       </div>
       <div class="card-desc">Cobertura del programa eVA del INMEGEN. Explico el proceso de consulta genética y el análisis de variantes de riesgo oncológico.</div>
       <div class="card-footer">
-        <a href="https://lanetaneta.com/haran-pruebas-geneticas-gratuitas-para-detectar-riesgo-de-cancer-aqui-puedes-saber-mas/" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://lanetaneta.com/haran-pruebas-geneticas-gratuitas-para-detectar-riesgo-de-cancer-aqui-puedes-saber-mas/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Comunicado · INMEGEN</div>
+        <div class="card-type">Comunicado, INMEGEN</div>
         <div class="card-title">INMEGEN ofrece opción accesible para especialización en Enfermedades Hereditarias</div>
-        <div class="card-meta">INMEGEN.gob.mx <span class="dot">·</span> Dic 2025</div>
+        <div class="card-meta">INMEGEN.gob.mx, Dic 2025</div>
       </div>
-      <div class="card-desc">Nota del INMEGEN sobre mi nombramiento como Profesor Titular del Posgrado de Alta Especialidad en Enfermedades Hereditarias (ciclo 2026–2027), avalado por la UNAM.</div>
+      <div class="card-desc">Nota del INMEGEN sobre mi nombramiento como Profesor Titular del Posgrado de Alta Especialidad en Enfermedades Hereditarias (ciclo 2026-2027), avalado por la UNAM.</div>
       <div class="card-footer">
-        <a href="https://www.inmegen.gob.mx/noticias/2025/12/05/el-inmegen-ofrece-una-opcion-accesible-para-que-medicas-y-medicos-genetistas-continuen-su-especializacion-en-enfermedades-hereditarias/" target="_blank" class="card-link">
-          Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.inmegen.gob.mx/noticias/2025/12/05/el-inmegen-ofrece-una-opcion-accesible-para-que-medicas-y-medicos-genetistas-continuen-su-especializacion-en-enfermedades-hereditarias/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver comunicado <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="prensa">
       <div class="card-top">
-        <div class="card-type">Artículo · Consultor Salud</div>
+        <div class="card-type">Artículo, Consultor Salud</div>
         <div class="card-title">Día Mundial de las Enfermedades Huérfanas: retos y oportunidades en México</div>
         <div class="card-meta">Consultor Salud</div>
       </div>
       <div class="card-desc">Comparto mi perspectiva sobre el panorama actual de las enfermedades raras en México, sus retos diagnósticos y las oportunidades de atención.</div>
       <div class="card-footer">
-        <a href="https://consultorsalud.com.mx/dia-mundial-enfermedades-huerfanas-retos-mexico/" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://consultorsalud.com.mx/dia-mundial-enfermedades-huerfanas-retos-mexico/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -418,50 +458,50 @@
 
   <!-- VIDEOS Y ENTREVISTAS -->
   <div class="cat-heading" data-cat="video">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg></div>
-    <h2 class="cat-title">Videos y <em>Entrevistas</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg></div>
+    <h2 class="cat-title">Videos y Entrevistas</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card featured" data-cat="video">
       <div class="card-top">
-        <div class="card-type">Entrevista Televisiva · Canal 11</div>
-        <div class="card-title">Entrevista en Once Noticias TV — Programa eVA de Detección Genética</div>
-        <div class="card-meta">Once Noticias TV · Canal 11</div>
+        <div class="card-type">Entrevista Televisiva, Canal 11</div>
+        <div class="card-title">Entrevista en Once Noticias TV, Programa eVA de Detección Genética</div>
+        <div class="card-meta">Once Noticias TV, Canal 11</div>
       </div>
       <div class="card-desc">Cuando era Subdirector de Investigación Médica del INMEGEN, expliqué en esta entrevista el programa eVA de detección de variantes genéticas de riesgo oncológico para la población mexicana.</div>
       <div class="card-footer">
-        <a href="https://www.facebook.com/OnceNoticiasTV/videos/-entrevista-ronny-kershenovich-subdirector-de-investigaci%C3%B3n-m%C3%A9dica-del-instituci/331101686733013/" target="_blank" class="card-link">
-          Ver entrevista <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.facebook.com/OnceNoticiasTV/videos/-entrevista-ronny-kershenovich-subdirector-de-investigaci%C3%B3n-m%C3%A9dica-del-instituci/331101686733013/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver entrevista <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="video">
       <div class="card-top">
-        <div class="card-type">Video Educativo · ScienceLink</div>
+        <div class="card-type">Video Educativo, ScienceLink</div>
         <div class="card-title">Antecedentes, definición y generalidades de la Enfermedad de Gaucher</div>
-        <div class="card-meta">ScienceLink (Pfizer México) <span class="dot">·</span> Abr 2022 <span class="dot">·</span> 34 min</div>
+        <div class="card-meta">ScienceLink (Pfizer México), Abr 2022, 34 min</div>
       </div>
       <div class="card-desc">Video de 34 minutos en el que explico la clasificación, etiología, epidemiología y patogénesis de la Enfermedad de Gaucher, una enfermedad lisosomal de depósito.</div>
       <div class="card-footer">
-        <a href="https://sciencelink.com/single-video.php?id=7756" target="_blank" class="card-link">
-          Ver video <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://sciencelink.com/single-video.php?id=7756" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver video <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="video">
       <div class="card-top">
-        <div class="card-type">Video Institucional · INMEGEN</div>
-        <div class="card-title">Comunidad INMEGEN — Subdirección de Investigación Médica</div>
-        <div class="card-meta">INMEGEN · Facebook</div>
+        <div class="card-type">Video Institucional, INMEGEN</div>
+        <div class="card-title">Comunidad INMEGEN, Subdirección de Investigación Médica</div>
+        <div class="card-meta">INMEGEN, Facebook</div>
       </div>
       <div class="card-desc">Mi presentación institucional de cuando era Subdirector de Investigación Médica del Instituto Nacional de Medicina Genómica.</div>
       <div class="card-footer">
-        <a href="https://www.facebook.com/inmegen/videos/comunidad-inmegen-subdirecci%C3%B3n-de-investigaci%C3%B3n/483843016607107/" target="_blank" class="card-link">
-          Ver video <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.facebook.com/inmegen/videos/comunidad-inmegen-subdirecci%C3%B3n-de-investigaci%C3%B3n/483843016607107/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver video <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -470,73 +510,73 @@
 
   <!-- PUBLICACIONES CIENTÍFICAS -->
   <div class="cat-heading" data-cat="ciencia">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
-    <h2 class="cat-title">Publicaciones <em>Científicas</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
+    <h2 class="cat-title">Publicaciones Científicas</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card featured" data-cat="ciencia">
       <div class="card-top">
-        <div class="card-type">Artículo · Frontiers in Genetics · PubMed</div>
+        <div class="card-type">Artículo, Frontiers in Genetics, PubMed</div>
         <div class="card-title">Evaluation of genetic alterations in hereditary cancer susceptibility genes in the Ashkenazi Jewish women community of Mexico</div>
         <div class="card-meta">
-          Frontiers in Genetics <span class="dot">·</span> Feb 2023
+          Frontiers in Genetics, Feb 2023
           <span class="badge badge-sky" style="margin-left:0.3rem">PMID: 36845387</span>
         </div>
       </div>
       <div class="card-desc">Estudio sobre alteraciones en genes de susceptibilidad hereditaria al cáncer en mujeres judías Ashkenazi de la comunidad de México. Publicado con DOI 10.3389/fgene.2023.1094260.</div>
       <div class="card-footer" style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="https://pubmed.ncbi.nlm.nih.gov/36845387/" target="_blank" class="card-link">
-          PubMed <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/36845387/" target="_blank" rel="noopener noreferrer" class="card-link">
+          PubMed <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
-        <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2023.1094260/full" target="_blank" class="card-link">
-          Texto completo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2023.1094260/full" target="_blank" rel="noopener noreferrer" class="card-link">
+          Texto completo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
-        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9950094/" target="_blank" class="card-link">
-          PMC <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9950094/" target="_blank" rel="noopener noreferrer" class="card-link">
+          PMC <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="ciencia">
       <div class="card-top">
-        <div class="card-type">Presentación · ACMG 2016 / Face2Gene</div>
+        <div class="card-type">Presentación, ACMG 2016 / Face2Gene</div>
         <div class="card-title">Highlighting phenotypic differences of Down Syndrome and Turner (45X) Syndrome Patients from different ethnic groups using computer-aided facial dysmorphology analysis</div>
-        <div class="card-meta">ACMG Annual Meeting <span class="dot">·</span> Tampa, FL <span class="dot">·</span> 2016</div>
+        <div class="card-meta">ACMG Annual Meeting, Tampa, FL, 2016</div>
       </div>
       <div class="card-desc">Presentación en el Congreso Anual del American College of Medical Genetics, analizando diferencias fenotípicas entre grupos étnicos usando análisis facial asistido por computadora (Face2Gene).</div>
       <div class="card-footer">
-        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" class="card-link">
-          Ver presentación <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver presentación <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="ciencia">
       <div class="card-top">
-        <div class="card-type">Perfil Académico · ResearchGate</div>
-        <div class="card-title">Perfil de investigación — Ronny Kershenovich Sefchovich</div>
+        <div class="card-type">Perfil Académico, ResearchGate</div>
+        <div class="card-title">Perfil de investigación, Ronny Kershenovich Sefchovich</div>
         <div class="card-meta">ResearchGate</div>
       </div>
       <div class="card-desc">Perfil académico con publicaciones registradas, incluyendo trabajos sobre diagnóstico prenatal, mosaicismo placentario confinado y su impacto en la confirmación de resultados de NIPT.</div>
       <div class="card-footer">
-        <a href="https://www.researchgate.net/profile/Ronny-Kershenovich" target="_blank" class="card-link">
-          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.researchgate.net/profile/Ronny-Kershenovich" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver perfil <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="ciencia">
       <div class="card-top">
-        <div class="card-type">Perfil · Frontiers in Science</div>
-        <div class="card-title">Perfil de publicaciones — Frontiers / Loop</div>
-        <div class="card-meta">Frontiers in Science · Loop</div>
+        <div class="card-type">Perfil, Frontiers in Science</div>
+        <div class="card-title">Perfil de publicaciones, Frontiers / Loop</div>
+        <div class="card-meta">Frontiers in Science, Loop</div>
       </div>
       <div class="card-desc">Perfil en la red académica de Frontiers donde se registran mis contribuciones como autor y revisor en publicaciones de genética y medicina genómica.</div>
       <div class="card-footer">
-        <a href="https://loop.frontiersin.org/people/2121763" target="_blank" class="card-link">
-          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://loop.frontiersin.org/people/2121763" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver perfil <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -545,36 +585,36 @@
 
   <!-- ARTÍCULOS PROPIOS -->
   <div class="cat-heading" data-cat="articulo">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
-    <h2 class="cat-title">Artículos de <em>Divulgación</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div>
+    <h2 class="cat-title">Artículos de Divulgación</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card" data-cat="articulo">
       <div class="card-top">
-        <div class="card-type">Artículo Médico · Top Doctors</div>
+        <div class="card-type">Artículo Médico, Top Doctors</div>
         <div class="card-title">El Síndrome de Down y sus causas</div>
-        <div class="card-meta">Top Doctors <span class="dot">·</span> Jun 2017</div>
+        <div class="card-meta">Top Doctors, Jun 2017</div>
       </div>
       <div class="card-desc">Artículo de divulgación que escribí sobre las causas genéticas del Síndrome de Down, su diagnóstico y las perspectivas para pacientes y familias.</div>
       <div class="card-footer">
-        <a href="https://www.topdoctors.mx/articulos-medicos/el-sindrome-de-down-y-sus-causas/" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.topdoctors.mx/articulos-medicos/el-sindrome-de-down-y-sus-causas/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="articulo">
       <div class="card-top">
-        <div class="card-type">Artículo Médico · Top Doctors</div>
+        <div class="card-type">Artículo Médico, Top Doctors</div>
         <div class="card-title">Genética Médica: la importancia de los genes</div>
-        <div class="card-meta">Top Doctors <span class="dot">·</span> Feb 2016</div>
+        <div class="card-meta">Top Doctors, Feb 2016</div>
       </div>
       <div class="card-desc">Artículo de divulgación sobre la importancia de la genética médica en el diagnóstico y prevención de enfermedades hereditarias, dirigido al público general.</div>
       <div class="card-footer">
-        <a href="https://www.topdoctors.mx/articulos-medicos/genetica-medica-la-importancia-de-los-genes/" target="_blank" class="card-link">
-          Leer artículo <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.topdoctors.mx/articulos-medicos/genetica-medica-la-importancia-de-los-genes/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Leer artículo <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -583,50 +623,50 @@
 
   <!-- CONGRESOS -->
   <div class="cat-heading" data-cat="congreso">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
-    <h2 class="cat-title">Congresos y <em>Eventos</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
+    <h2 class="cat-title">Congresos y Eventos</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card featured" data-cat="congreso">
       <div class="card-top">
-        <div class="card-type">Congreso Internacional · FEMEXER</div>
-        <div class="card-title">13ª Edición COINER — Congreso Internacional de Enfermedades Raras</div>
-        <div class="card-meta">COINER <span class="dot">·</span> Nov 2022 <span class="badge badge-sky" style="margin-left:0.3rem">Presidente del Comité Científico</span></div>
+        <div class="card-type">Congreso Internacional, FEMEXER</div>
+        <div class="card-title">13ª Edición COINER, Congreso Internacional de Enfermedades Raras</div>
+        <div class="card-meta">COINER, Nov 2022 <span class="badge badge-sky" style="margin-left:0.3rem">Presidente del Comité Científico</span></div>
       </div>
       <div class="card-desc">Presidí el Comité Científico del 13° Congreso Internacional de Enfermedades Raras.</div>
       <div class="card-footer">
-        <a href="https://www.prnewswire.com/news-releases/con-gran-exito-se-llevo-a-cabo-la-inauguracion-de-la-decimotercera-edicion-del-congreso-internacional-de-enfermedades-raras-868000958.html" target="_blank" class="card-link">
-          Ver comunicado <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.prnewswire.com/news-releases/con-gran-exito-se-llevo-a-cabo-la-inauguracion-de-la-decimotercera-edicion-del-congreso-internacional-de-enfermedades-raras-868000958.html" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver comunicado <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="congreso">
       <div class="card-top">
-        <div class="card-type">Congreso Internacional · ACMG 2016</div>
-        <div class="card-title">ACMG Annual Clinical Genetics Meeting — Tampa, Florida</div>
-        <div class="card-meta">American College of Medical Genetics <span class="dot">·</span> 2016 <span class="dot">·</span> Tampa, FL</div>
+        <div class="card-type">Congreso Internacional, ACMG 2016</div>
+        <div class="card-title">ACMG Annual Clinical Genetics Meeting, Tampa, Florida</div>
+        <div class="card-meta">American College of Medical Genetics, 2016, Tampa, FL</div>
       </div>
       <div class="card-desc">Participé como ponente con una presentación sobre el análisis de dismorfología facial asistida por computadora en Síndrome de Down y Síndrome de Turner en distintos grupos étnicos.</div>
       <div class="card-footer">
-        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" class="card-link">
-          Ver presentación <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.face2gene.com/news/highlighting-phenotypic-differences-syndrome-andturner-45x-syndrome-patients-different-ethnic-groups-using-computer-aided-facial-dysmorphology-analysis/kershenovich-acmg16/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver presentación <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="congreso">
       <div class="card-top">
-        <div class="card-type">Perfil Experto · The Ehlers-Danlos Society</div>
-        <div class="card-title">Miembro experto — The Ehlers-Danlos Society</div>
-        <div class="card-meta">Ehlers-Danlos Society · Internacional</div>
+        <div class="card-type">Perfil Experto, The Ehlers-Danlos Society</div>
+        <div class="card-title">Miembro experto, The Ehlers-Danlos Society</div>
+        <div class="card-meta">Ehlers-Danlos Society, Internacional</div>
       </div>
       <div class="card-desc">Formo parte, como miembro experto, del Consorcio Internacional de Ehlers-Danlos, dedicado al diagnóstico y manejo de las enfermedades del tejido conectivo.</div>
       <div class="card-footer">
-        <a href="https://www.ehlers-danlos.com/ronny-kershenovich/" target="_blank" class="card-link">
-          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.ehlers-danlos.com/ronny-kershenovich/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver perfil <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -635,50 +675,50 @@
 
   <!-- RECONOCIMIENTOS -->
   <div class="cat-heading" data-cat="reconocimiento">
-    <div class="cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-    <h2 class="cat-title"><em>Reconocimientos</em></h2>
+    <div class="cat-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+    <h2 class="cat-title">Reconocimientos</h2>
     <div class="cat-line"></div>
   </div>
   <div class="cards-grid">
 
     <div class="card featured" data-cat="reconocimiento">
       <div class="card-top">
-        <div class="card-type">Reconocimiento Nacional · Líderes Mexicanos</div>
+        <div class="card-type">Reconocimiento Nacional, Líderes Mexicanos</div>
         <div class="card-title">Los Mejores Médicos de México 2024 y 2025</div>
-        <div class="card-meta">Líderes Mexicanos <span class="dot">·</span> 2024–2025 <span class="badge badge-gold" style="margin-left:0.3rem">2 años consecutivos</span></div>
+        <div class="card-meta">Líderes Mexicanos, 2024 y 2025 <span class="badge badge-gold" style="margin-left:0.3rem">2 años consecutivos</span></div>
       </div>
       <div class="card-desc">La publicación Líderes Mexicanos me incluyó en su lista de los mejores médicos de México durante dos años consecutivos, por mi trayectoria en genética médica.</div>
       <div class="card-footer">
-        <a href="https://lideresmexicanos.com/persona/medicos-2025-ronny-kershenovich-sefchovich" target="_blank" class="card-link">
-          Ver reconocimiento <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://lideresmexicanos.com/persona/medicos-2025-ronny-kershenovich-sefchovich" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver reconocimiento <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="reconocimiento">
       <div class="card-top">
-        <div class="card-type">Perfil Oficial · INMEGEN</div>
-        <div class="card-title">Curriculum Vitae Institucional — INMEGEN</div>
+        <div class="card-type">Perfil Oficial, INMEGEN</div>
+        <div class="card-title">Curriculum Vitae Institucional, INMEGEN</div>
         <div class="card-meta">Instituto Nacional de Medicina Genómica</div>
       </div>
       <div class="card-desc">Mi perfil en el INMEGEN de la etapa en que fui Subdirector de Investigación Médica, con mi formación, afiliaciones y líneas de investigación.</div>
       <div class="card-footer">
-        <a href="https://www.inmegen.gob.mx/investigacion/investigadores/curriculum-vitae/?perfil=8921" target="_blank" class="card-link">
-          Ver CV oficial <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://www.inmegen.gob.mx/investigacion/investigadores/curriculum-vitae/?perfil=8921" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver CV oficial <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
 
     <div class="card" data-cat="reconocimiento">
       <div class="card-top">
-        <div class="card-type">Perfil · Centro Médico ABC</div>
-        <div class="card-title">Perfil médico — ABC Medical Center</div>
+        <div class="card-type">Perfil, Centro Médico ABC</div>
+        <div class="card-title">Perfil médico, ABC Medical Center</div>
         <div class="card-meta">Centro Médico ABC</div>
       </div>
       <div class="card-desc">Mi perfil oficial en el Centro Médico ABC, donde soy Presidente de la Práctica Médica Grupal de Genética. Hablo español, inglés, francés y hebreo.</div>
       <div class="card-footer">
-        <a href="https://centromedicoabc.com/en/doctor/ronny-kershenovich-sefchovich/" target="_blank" class="card-link">
-          Ver perfil <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
+        <a href="https://centromedicoabc.com/en/doctor/ronny-kershenovich-sefchovich/" target="_blank" rel="noopener noreferrer" class="card-link">
+          Ver perfil <svg aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10L10 2M10 2H5M10 2v5"/></svg>
         </a>
       </div>
     </div>
@@ -686,15 +726,19 @@
   </div>
 
   <div class="back-top">
-    <a href="#top">↑ Volver arriba</a> &nbsp;·&nbsp; <a href="index.html">← Regresar al sitio principal</a>
+    <a href="#top">Volver arriba</a> &nbsp; <a href="index.html">Regresar al sitio principal</a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">Dr. Ronny Kershenovich Sefchovich · Médico Genetista</div>
-    <div class="footer-back"><a href="index.html">← Regresar al sitio principal</a></div>
+    <div class="footer-brand">Dr. Ronny Kershenovich Sefchovich, Médico Genetista</div>
+    <div class="footer-back"><a href="index.html">Regresar al sitio principal</a></div>
+  </div>
+  <div class="footer-legal">
+    <span class="lang-es">La información de este sitio es general y no sustituye una consulta médica.<br><a href="aviso-privacidad.html">Aviso de privacidad</a>. Este sitio no usa cookies.</span>
+    <span class="lang-en">The information on this site is general and does not replace a medical consultation.<br><a href="aviso-privacidad.html">Privacy notice (Spanish)</a>. This site uses no cookies.</span>
   </div>
 </footer>
 

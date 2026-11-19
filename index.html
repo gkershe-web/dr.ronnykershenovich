@@ -2,27 +2,79 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="description" content="Dr. Ronny Kershenovich Sefchovich, médico genetista en la Ciudad de México. Consulta presencial en el Centro Médico ABC Santa Fe y en línea.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genética Médica y Medicina Genómica — Dr. Ronny Kershenovich Sefchovich</title>
+<title>Genética Médica y Medicina Genómica | Dr. Ronny Kershenovich Sefchovich</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+/* Hallmark · checked: 2026-11-19 · genre: editorial (inferred)
+ * floor: 0 FAIL · fixed: 3, 6a, 7a, 7b, 19, 26a, 26b, 28b, 33, 34, 38i, 38ii, 38iii, 48, 50, 62, 63, 67, F1, F3, F4, F6, F23 · structural: printed (8, 42, 58)
+ * built: the project · redesign: polish · v2.0.0 */
+ /* Hallmark · waive 24b · gap: 5px on the hamburger · las tres barras del menú quedan a 7px para que la ✕ gire en su centro */
+ /* Hallmark · dismissed 29 · el doctor pidió la barra de vidrio estilo Apple; se vuelve sólida con reducir transparencia */
+ /* Hallmark · dismissed 40 · cada sección pone su propio fondo; el color de body solo queda detrás del video de ADN */
+ /* Hallmark · dismissed 49 · el botón del mapa cuenta también su gemelo en inglés oculto; se ven dos líneas cortas */
+ /* Hallmark · answered F6 · no queda ningún número grande en pantalla; .esp-num ya no está en la página */
+ /* Hallmark · answered F15 · el espacio entre columnas sigue al contenido: biografía a 5rem, tarjetas a 2rem, contacto a 1.5rem */
   :root {
+    --sky-soft: #90caf9;
     --navy:      #1a237e;
     --blue:      #1565c0;
     --sky:       #42a5f5;
     --bg-light:  #f4f7fb;
-    --white:     #ffffff;
+    --white:     #f7f9ff;
     --text:      #0d1b4b;
     --gray:      #56637f;
     --border:    #dce3f0;
     --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
     --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+      --font-body:    'DM Sans', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+    --black-a20: rgba(0,0,0,0.2);
+    --black-a35: rgba(0,0,0,0.35);
+    --black-a40: rgba(0,0,0,0.4);
+    --blue-a07: rgba(21,101,192,0.07);
+    --blue-a15: rgba(21,101,192,0.15);
+    --blue-a20: rgba(21,101,192,0.2);
+    --blue-a30: rgba(21,101,192,0.3);
+    --c-0d1340: #0d1340;
+    --c-0d1b6e: #0d1b6e;
+    --c-15803d: #15803d;
+    --c-166534: #166534;
+    --c-3a4a6b: #3a4a6b;
+    --c-64b5f6: #64b5f6;
+    --c-e9eef6: #e9eef6;
+    --ink-a80: rgba(13,27,75,0.8);
+    --navy-a82: rgba(26,35,126,0.82);
+    --navy-a85: rgba(26,35,126,0.85);
+    --navy-a97: rgba(26,35,126,0.97);
+    --navy-deep-a82: rgba(13,27,110,0.82);
+    --sky-a06: rgba(66,165,245,0.06);
+    --sky-a10: rgba(66,165,245,0.1);
+    --sky-a12: rgba(66,165,245,0.12);
+    --sky-a15: rgba(66,165,245,0.15);
+    --sky-a30: rgba(66,165,245,0.3);
+    --white-a04: rgba(255,255,255,0.04);
+    --white-a08: rgba(255,255,255,0.08);
+    --white-a10: rgba(255,255,255,0.1);
+    --white-a20: rgba(255,255,255,0.2);
+    --white-a25: rgba(255,255,255,0.25);
+    --white-a30: rgba(255,255,255,0.3);
+    --white-a40: rgba(255,255,255,0.4);
+    --white-a50: rgba(255,255,255,0.5);
+    --white-a55: rgba(255,255,255,0.55);
+    --white-a60: rgba(255,255,255,0.6);
+    --white-a70: rgba(255,255,255,0.7);
+    --white-a72: rgba(255,255,255,0.72);
+    --white-a75: rgba(255,255,255,0.75);
+    --white-a95: rgba(255,255,255,0.95);
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'DM Sans',sans-serif; background:#0d1340; color:var(--text); overflow-x:hidden; }
+  html { scroll-behavior:smooth; overflow-x:clip; }
+  body { font-family:var(--font-body); background:var(--c-0d1340); color:var(--text); overflow-x:clip; }
 
   /* ── DNA VIDEO GLOBAL BACKGROUND ── */
   #dna-bg {
@@ -47,40 +99,31 @@
     transition:background 250ms ease, -webkit-backdrop-filter 250ms ease, backdrop-filter 250ms ease, border-color 250ms ease;
   }
   nav.scrolled {
-    background:rgba(26,35,126,0.85);
+    background:var(--navy-a85);
     -webkit-backdrop-filter:blur(20px) saturate(180%);
     backdrop-filter:blur(20px) saturate(180%);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid var(--white-a08);
   }
   .nav-logo { display:flex; align-items:center; gap:1rem; }
   .nav-logo img {
     height:72px;
     border-radius:6px;
-    box-shadow:
-      0 0 0 2px var(--sky),
-      0 0 16px rgba(66,165,245,0.4),
-      0 4px 16px rgba(0,0,0,0.35);
+    box-shadow: 0 0 0 2px var(--sky), 0 4px 16px var(--black-a35);
     transition:box-shadow 200ms ease, transform 200ms var(--ease-out);
   }
   @media (hover:hover) and (pointer:fine) {
-    .nav-logo img:hover {
-      box-shadow:
-        0 0 0 2.5px var(--sky),
-        0 0 28px rgba(66,165,245,0.6),
-        0 6px 20px rgba(0,0,0,0.4);
-      transform:scale(1.03);
-    }
+    .nav-logo img:hover { box-shadow:0 0 0 2px var(--sky-soft), 0 6px 20px var(--black-a40); }
   }
   .nav-brand {
-    font-family:'Cormorant Garamond',serif;
-    color:rgba(255,255,255,0.95);
+    font-family:var(--font-display);
+    color:var(--white-a95);
     letter-spacing:0.03em; line-height:1.35;
   }
   .nav-brand-name {
     display:block;
     font-size:1rem;
     font-weight:400;
-    color:#ffffff;
+    color:var(--white);
     letter-spacing:0.03em;
   }
   .nav-brand-sub {
@@ -88,14 +131,12 @@
     font-size:0.65rem;
     font-weight:300;
     color:var(--sky);
-    letter-spacing:0.1em;
-    text-transform:uppercase;
     margin-top:0.1rem;
   }
   .nav-links { display:flex; gap:1.4rem; list-style:none; align-items:center; }
   .nav-links a {
-    color:rgba(255,255,255,0.7); text-decoration:none;
-    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--white-a70); text-decoration:none;
+    font-size:0.72rem;
     transition:color 200ms ease; white-space:nowrap;
   }
   @media (hover:hover) and (pointer:fine) { .nav-links a:hover { color:var(--sky); } }
@@ -103,24 +144,24 @@
     background:var(--sky) !important; color:var(--navy) !important;
     padding:0.5rem 1.3rem; border-radius:2px; font-weight:500 !important;
   }
-  @media (hover:hover) and (pointer:fine) { .nav-cta:hover { background:var(--blue) !important; color:white !important; } }
+  @media (hover:hover) and (pointer:fine) { .nav-cta:hover { background:var(--blue) !important; color:var(--white) !important; } }
   .lang-btn {
-    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.25);
-    color:white; padding:0.4rem 0.9rem; border-radius:2px; cursor:pointer;
-    font-size:0.75rem; letter-spacing:0.1em; font-family:'DM Sans',sans-serif;
+    background:var(--white-a10); border:1px solid var(--white-a25);
+    color:var(--white); padding:0.4rem 0.9rem; border-radius:2px; cursor:pointer;
+    font-size:0.75rem; font-family:var(--font-body);
   }
-  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:rgba(255,255,255,0.2); } }
+  @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:var(--white-a20); } }
 
   /* ── HERO ── */
   .hero {
-    min-height:100vh; min-height:100svh; display:grid; grid-template-columns:1fr 1fr;
-    background:linear-gradient(135deg, rgba(26,35,126,0.82) 0%, rgba(13,27,110,0.82) 100%);
+    min-height:100svh; display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+    background:linear-gradient(135deg, var(--navy-a82) 0%, var(--navy-deep-a82) 100%);
     padding-top:80px; position:relative; overflow:hidden;
   }
   .hero::after {
     content:''; position:absolute; top:-20%; right:-5%;
     width:55vw; height:55vw; border-radius:50%;
-    background:radial-gradient(circle, rgba(66,165,245,0.12) 0%, transparent 70%);
+    background:radial-gradient(circle, var(--sky-a12) 0%, transparent 70%);
     pointer-events:none; z-index:1;
   }
 
@@ -133,7 +174,7 @@
   }
   .slider-label {
     text-align:center;
-    font-size:0.67rem; letter-spacing:0.22em; text-transform:uppercase;
+    font-size:0.67rem;
     color:var(--gray); margin-bottom:1.6rem;
   }
   .slider-track-wrap { position:relative; }
@@ -170,39 +211,38 @@
     padding:5rem 4rem 5rem 6rem; position:relative; z-index:2;
   }
   .hero-eyebrow {
-    font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase;
+    font-size:0.7rem;
     color:var(--sky); margin-bottom:1.5rem;
     display:flex; align-items:center; gap:0.8rem;
     animation:fadeUp 400ms var(--ease-out) 0ms both;
   }
   .hero-eyebrow::before { content:''; width:2rem; height:1px; background:var(--sky); }
   .hero-title {
-    font-family:'Cormorant Garamond',serif;
+    font-family:var(--font-display);
     font-size:clamp(2.8rem,4.5vw,4.5rem);
     font-weight:300; color:var(--white); line-height:1.1;
     margin-bottom:0.6rem;
     animation:fadeUp 400ms var(--ease-out) 50ms both;
   }
-  .hero-title em { font-style:italic; color:var(--sky); }
   .hero-subtitle {
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.2rem; color:rgba(255,255,255,0.7);
+    font-family:var(--font-display);
+    font-size:1.2rem; color:var(--white-a70);
     font-weight:300; letter-spacing:0.06em; margin-bottom:2.5rem;
     animation:fadeUp 400ms var(--ease-out) 100ms both;
   }
   .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp 400ms var(--ease-out) 150ms both; }
   .btn-wa {
-    background:#15803d; color:white; padding:0.85rem 1.8rem;
+    background:var(--c-15803d); color:var(--white); padding:0.85rem 1.8rem;
     text-decoration:none; font-size:0.85rem; font-weight:500;
     border-radius:2px; display:flex; align-items:center; gap:0.5rem;
   }
-  @media (hover:hover) and (pointer:fine) { .btn-wa:hover { background:#166534; transform:translateY(-2px); } }
+  @media (hover:hover) and (pointer:fine) { .btn-wa:hover { background:var(--c-166534); transform:translateY(-2px); } }
   .btn-doc {
     background:var(--sky); color:var(--navy); padding:0.85rem 1.8rem;
     text-decoration:none; font-size:0.85rem; font-weight:500;
     border-radius:2px;
   }
-  @media (hover:hover) and (pointer:fine) { .btn-doc:hover { background:#64b5f6; transform:translateY(-2px); } }
+  @media (hover:hover) and (pointer:fine) { .btn-doc:hover { background:var(--c-64b5f6); transform:translateY(-2px); } }
   .hero-right {
     display:flex; align-items:center; justify-content:center;
     padding:5rem 4rem; position:relative; z-index:2;
@@ -212,51 +252,50 @@
   }
   .hero-photo-wrap::before {
     content:''; position:absolute;
-    inset:-8px; border:1px solid rgba(66,165,245,0.3); border-radius:2px;
+    inset:-8px; border:1px solid var(--sky-a30); border-radius:2px;
   }
   .hero-photo {
     width:100%; max-width:420px; border-radius:2px;
     display:block; object-fit:cover;
-    box-shadow:0 24px 64px rgba(0,0,0,0.4);
+    box-shadow:0 24px 64px var(--black-a40);
   }
   .hero-badge {
     position:absolute; bottom:-1.5rem; left:-1.5rem;
     background:var(--sky); color:var(--navy);
     padding:1rem 1.5rem; border-radius:2px;
     font-weight:500; font-size:0.82rem; line-height:1.4;
-    box-shadow:0 8px 24px rgba(0,0,0,0.2);
+    box-shadow:0 8px 24px var(--black-a20);
   }
   .hero-badge strong { display:block; font-size:1.4rem; font-weight:300;
-    font-family:'Cormorant Garamond',serif; }
+    font-family:var(--font-display); }
 
   /* ── SECTIONS COMMON ── */
   section { padding:6rem 0; }
   .container { max-width:1200px; margin:0 auto; padding:0 4rem; }
   .section-tag {
-    font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase;
+    font-size:0.68rem;
     color:var(--blue); margin-bottom:0.8rem;
     display:flex; align-items:center; gap:0.7rem;
   }
   .section-tag::before { content:''; width:1.5rem; height:1px; background:var(--blue); }
   .section-title {
-    font-family:'Cormorant Garamond',serif;
+    font-family:var(--font-display);
     font-size:clamp(2rem,3vw,2.8rem); font-weight:300;
     color:var(--navy); line-height:1.2; margin-bottom:1.5rem;
   }
-  .section-title em { font-style:italic; color:var(--blue); }
 
   /* ── SOBRE EL DR ── */
   .sobre { background:var(--bg-light); }
-  .sobre-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; }
+  .sobre-grid { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1.4fr); gap:5rem; align-items:start; }
   .sobre-left { position:sticky; top:100px; }
   .ilustracion { width:100%; max-width:340px; border-radius:4px; margin-top:2rem; }
   .cedulas {
     margin-top:2rem; padding:1.5rem;
-    background:rgba(255,255,255,0.6); border-left:3px solid var(--sky);
-    border-radius:0 4px 4px 0;
+    background:var(--white-a60); border:1px solid var(--border);
+    border-radius:4px;
   }
   .cedulas h3 {
-    font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em;
+    font-size:0.68rem;
     color:var(--blue); margin-bottom:1rem;
   }
   .cedula-item { font-size:0.82rem; color:var(--text); margin-bottom:0.5rem; line-height:1.5; }
@@ -275,25 +314,24 @@
   .form-text strong { display:block; font-size:0.84rem; color:var(--navy); margin-bottom:0.2rem; }
   .form-text span { font-size:0.78rem; color:var(--gray); }
   .sobre-right p {
-    color:#3a4a6b; line-height:1.9; font-size:0.97rem; margin-bottom:1.4rem;
+    color:var(--c-3a4a6b); line-height:1.9; font-size:0.97rem; margin-bottom:1.4rem;
   }
   .tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
   .tag {
-    background:rgba(21,101,192,0.07); color:var(--blue);
-    border:1px solid rgba(21,101,192,0.2);
+    background:var(--blue-a07); color:var(--blue);
+    border:1px solid var(--blue-a20);
     padding:0.35rem 0.9rem; border-radius:2px; font-size:0.76rem;
   }
 
   /* ── ESPECIALIDADES ── */
-  .especialidades { background:rgba(26,35,126,0.82); }
+  .especialidades { background:var(--navy-a82); }
   .especialidades .section-tag { color:var(--sky); }
   .especialidades .section-tag::before { background:var(--sky); }
   .especialidades .section-title { color:var(--white); }
-  .especialidades .section-title em { color:var(--sky); }
-  .esp-intro { color:rgba(255,255,255,0.55); font-size:0.95rem; line-height:1.8; max-width:560px; margin-bottom:3.5rem; }
-  .esp-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(66,165,245,0.1); }
+  .esp-intro { color:var(--white-a55); font-size:0.95rem; line-height:1.8; max-width:560px; margin-bottom:3.5rem; }
+  .esp-grid { display:grid; grid-template-columns:repeat(4,minmax(0, 1fr)); gap:1px; background:var(--sky-a10); }
   .esp-card {
-    background:rgba(13,27,75,0.8); padding:2rem 1.8rem;
+    background:var(--ink-a80); padding:2rem 1.8rem;
     transition:background 200ms ease; position:relative; overflow:hidden;
   }
   .esp-card::after {
@@ -301,24 +339,24 @@
     height:2px; background:var(--sky);
     transform:scaleX(0); transition:transform 300ms var(--ease-out); transform-origin:left;
   }
-  @media (hover:hover) and (pointer:fine) { .esp-card:hover { background:rgba(21,101,192,0.15); } }
+  @media (hover:hover) and (pointer:fine) { .esp-card:hover { background:var(--blue-a15); } }
   @media (hover:hover) and (pointer:fine) { .esp-card:hover::after { transform:scaleX(1); } }
   .esp-num {
-    font-family:'Cormorant Garamond',serif; font-size:2.5rem;
-    color:rgba(66,165,245,0.12); font-weight:300; line-height:1; margin-bottom:0.8rem;
+    font-family:var(--font-display); font-size:2.5rem;
+    color:var(--sky-a12); font-weight:300; line-height:1; margin-bottom:0.8rem;
   }
   .esp-card h3 {
-    font-family:'Cormorant Garamond',serif; font-size:1.15rem;
+    font-family:var(--font-display); font-size:1.15rem;
     font-weight:400; color:var(--white); line-height:1.3; margin-bottom:0.6rem;
   }
-  .esp-card p { font-size:0.8rem; color:rgba(255,255,255,0.72); line-height:1.7; }
-  .esp-cta { display:flex; flex-direction:column; justify-content:center; text-decoration:none; background:rgba(21,101,192,0.3); -webkit-tap-highlight-color:transparent; }
+  .esp-card p { font-size:0.8rem; color:var(--white-a72); line-height:1.7; }
+  .esp-cta { display:flex; flex-direction:column; justify-content:center; text-decoration:none; background:var(--blue-a30); -webkit-tap-highlight-color:transparent; }
   .esp-cta-link { margin-top:1rem; font-size:0.9rem; font-weight:500; color:var(--sky); }
   .esp-cta:active { opacity:0.85; }
 
   /* ── TRAYECTORIA ── */
   .trayectoria { background:var(--bg-light); }
-  .tray-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; }
+  .tray-grid { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:5rem; }
   .timeline { position:relative; padding-left:1.5rem; }
   .timeline::before {
     content:''; position:absolute; left:0; top:0; bottom:0;
@@ -336,93 +374,91 @@
   .memb-item {
     display:flex; align-items:flex-start; gap:0.7rem;
     padding:0.75rem 0; border-bottom:1px solid var(--border);
-    font-size:0.85rem; color:#3a4a6b;
+    font-size:0.85rem; color:var(--c-3a4a6b);
   }
   .memb-item::before { content:'→'; color:var(--sky); font-size:0.78rem; flex-shrink:0; margin-top:2px; }
 
   /* ── HORARIOS ── */
   .horarios { background:var(--white); }
-  .hor-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:2.5rem; }
+  .hor-grid { display:grid; grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); gap:2rem; margin-top:2.5rem; }
   .hor-card {
     border:1px solid var(--border); border-radius:2px; overflow:hidden;
   }
   .hor-card-head {
-    background:var(--navy); color:white;
+    background:var(--navy); color:var(--white);
     padding:1.2rem 1.5rem; font-size:0.78rem;
-    text-transform:uppercase; letter-spacing:0.12em;
   }
-  .hor-card-head span { display:block; font-size:0.68rem; color:rgba(255,255,255,0.5); margin-top:0.2rem; }
+  .hor-card-head span { display:block; font-size:0.68rem; color:var(--white-a50); margin-top:0.2rem; }
   .hor-table { width:100%; border-collapse:collapse; }
   .hor-table td { padding:0.8rem 1.5rem; font-size:0.85rem; border-bottom:1px solid var(--border); }
   .hor-table tr:last-child td { border-bottom:none; }
   .hor-table td:first-child { font-weight:500; color:var(--navy); }
   .hor-table td:last-child { color:var(--gray); text-align:right; }
   .precio-card {
-    background:linear-gradient(135deg,var(--navy),#0d1b6e);
-    color:white; padding:2.5rem; border-radius:2px;
+    background:linear-gradient(135deg,var(--navy),var(--c-0d1b6e));
+    color:var(--white); padding:2.5rem; border-radius:2px;
     display:flex; flex-direction:column; justify-content:center;
     text-align:center;
   }
-  .precio-card .precio-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.2em; color:rgba(255,255,255,0.5); margin-bottom:0.8rem; }
+  .precio-card .precio-label { font-size:0.72rem; color:var(--white-a50); margin-bottom:0.8rem; }
   .precio-card .precio-num {
-    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-family:var(--font-display); font-size:3.5rem;
     color:var(--sky); font-weight:300; line-height:1;
   }
-  .precio-card .precio-moneda { font-size:0.9rem; color:rgba(255,255,255,0.6); margin-top:0.4rem; }
-  .precio-card .precio-note { font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:1rem; }
+  .precio-card .precio-moneda { font-size:0.9rem; color:var(--white-a60); margin-top:0.4rem; }
+  .precio-card .precio-note { font-size:0.78rem; color:var(--white-a40); margin-top:1rem; }
   .hor-note {
     margin-top:1.5rem; font-size:0.8rem; color:var(--gray);
     border-left:2px solid var(--sky); padding-left:1rem;
   }
 
   /* ── RESEÑAS ── */
-  .resenas { background:rgba(26,35,126,0.82); }
+  .resenas { background:var(--navy-a82); }
   .resenas .section-tag { color:var(--sky); }
   .resenas .section-tag::before { background:var(--sky); }
   .resenas .section-title { color:var(--white); }
-  .resenas .section-title em { color:var(--sky); }
-  .rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+  .rev-grid { display:grid; grid-template-columns:repeat(3,minmax(0, 1fr)); gap:1.5rem; margin-top:2.5rem; }
   .rev-card {
-    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+    background:var(--white-a04); border:1px solid var(--white-a08);
     padding:2rem; border-radius:2px; transition:border-color 200ms ease;
   }
-  @media (hover:hover) and (pointer:fine) { .rev-card:hover { border-color:rgba(66,165,245,0.3); } }
-  .rev-stars { color:var(--sky); font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1rem; }
+  @media (hover:hover) and (pointer:fine) { .rev-card:hover { border-color:var(--sky-a30); } }
+  .rev-stars { color:var(--sky); font-size:0.85rem; margin-bottom:1rem; }
   .rev-text {
-    font-family:'Cormorant Garamond',serif; font-size:1.05rem;
-    font-style:italic; color:rgba(255,255,255,0.75);
+    font-family:var(--font-display); font-size:1.05rem;
+    font-style:italic; color:var(--white-a75);
     line-height:1.7; margin-bottom:1.5rem;
   }
-  .rev-author { font-size:0.73rem; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.3); }
+  .rev-author { font-size:0.73rem; color:var(--white-a30); }
   .rev-source { font-size:0.7rem; color:var(--sky); margin-top:0.2rem; }
   .rating-row {
     display:flex; align-items:center; gap:3rem; margin-top:2.5rem;
-    padding:2rem 2.5rem; background:rgba(66,165,245,0.06);
-    border:1px solid rgba(66,165,245,0.15);
+    padding:2rem 2.5rem; background:var(--sky-a06);
+    border:1px solid var(--sky-a15);
   }
-  .rating-big { font-family:'Cormorant Garamond',serif; font-size:4rem; color:var(--sky); font-weight:300; line-height:1; }
-  .rating-details strong { display:block; color:white; font-size:0.9rem; }
-  .rating-details span { font-size:0.78rem; color:rgba(255,255,255,0.4); }
+  .rating-big { font-family:var(--font-display); font-size:4rem; color:var(--sky); font-weight:300; line-height:1; }
+  .rating-details strong { display:block; color:var(--white); font-size:0.9rem; }
+  .rating-details span { font-size:0.78rem; color:var(--white-a40); }
 
   /* ── CONTACTO ── */
   .contacto { background:var(--bg-light); }
-  .contact-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:start; }
+  .contact-grid { display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, 1fr); gap:5rem; align-items:start; }
   .contact-actions { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
   .btn-wa-big {
     display:flex; align-items:center; gap:1rem;
-    background:#15803d; color:white; padding:1.2rem 2rem;
+    background:var(--c-15803d); color:var(--white); padding:1.2rem 2rem;
     text-decoration:none; border-radius:2px; font-size:0.9rem; font-weight:500;
   }
-  @media (hover:hover) and (pointer:fine) { .btn-wa-big:hover { background:#166534; transform:translateY(-2px); } }
+  @media (hover:hover) and (pointer:fine) { .btn-wa-big:hover { background:var(--c-166534); transform:translateY(-2px); } }
   .btn-wa-big .btn-icon { font-size:1.4rem; }
   .btn-doc-big {
     display:flex; align-items:center; gap:1rem;
-    background:var(--blue); color:white; padding:1.2rem 2rem;
+    background:var(--blue); color:var(--white); padding:1.2rem 2rem;
     text-decoration:none; border-radius:2px; font-size:0.9rem; font-weight:500;
   }
   @media (hover:hover) and (pointer:fine) { .btn-doc-big:hover { background:var(--navy); transform:translateY(-2px); } }
   .btn-doc-big .btn-icon { font-size:1.4rem; }
-  .btn-sub { font-size:0.75rem; color:rgba(255,255,255,0.7); display:block; }
+  .btn-sub { font-size:0.75rem; color:var(--white-a70); display:block; }
   .contact-info { margin-top:2.5rem; }
   .ci-item { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.8rem; }
   .ci-icon {
@@ -430,22 +466,33 @@
     display:flex; align-items:center; justify-content:center;
     color:var(--sky); font-size:1rem; flex-shrink:0; border-radius:2px;
   }
-  .ci-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--gray); margin-bottom:0.25rem; }
+  .ci-label { font-size:0.68rem; color:var(--gray); margin-bottom:0.25rem; }
   .ci-value { font-size:0.88rem; color:var(--text); line-height:1.5; }
   .mapa-wrap {
     margin-top:2rem; border:1px solid var(--border); border-radius:2px; overflow:hidden;
   }
   .mapa-wrap iframe { width:100%; height:280px; border:none; display:block; }
+  .mapa-load {
+    width:100%; height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
+    background:var(--bg-light); border:none; cursor:pointer; font-family:var(--font-body); color:var(--navy);
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation; transition:background-color 200ms ease;
+  }
+  .mapa-title { font-size:1rem; font-weight:500; }
+  .mapa-note { font-size:0.85rem; color:var(--gray); }
+  .mapa-load:active { background:var(--border); }
+  @media (hover:hover) and (pointer:fine) { .mapa-load:hover { background:var(--c-e9eef6); } }
 
   /* ── FOOTER ── */
   footer {
     background:var(--navy); padding:2.5rem 0;
-    border-top:1px solid rgba(66,165,245,0.1);
+    border-top:1px solid var(--sky-a10);
   }
   .footer-inner { display:flex; justify-content:space-between; align-items:center; }
-  .footer-brand { font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:rgba(255,255,255,0.7); }
-  .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.3); }
-  .footer-cedulas { font-size:0.72rem; color:rgba(255,255,255,0.3); text-align:right; line-height:1.6; }
+  .footer-brand { font-family:var(--font-display); font-size:0.95rem; color:var(--white-a70); }
+  .footer-copy { font-size:0.75rem; color:var(--white-a60); }
+  .footer-cedulas { font-size:0.72rem; color:var(--white-a60); text-align:right; line-height:1.6; }
+  .footer-legal { margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--white-a10); font-size:0.8rem; color:var(--white-a60); text-align:center; line-height:1.6; }
+  .footer-legal a { color:var(--sky-soft); }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
@@ -460,48 +507,50 @@
   }
   .hamburger span {
     display:block; width:24px; height:2px;
-    background:#fff; border-radius:2px;
+    background:var(--white); border-radius:2px;
     transition:transform 260ms var(--ease-drawer), opacity 180ms ease-out;
   }
   /* ☰ → ✕ (7px = barra de 2px + espacio de 5px) */
-  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0.2); }
-  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .js .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .js .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0.2); }
+  .js .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 
   /* ── RESPONSIVE ── */
   @media (max-width:960px) {
     nav { padding:1rem 1.5rem; }
     .hamburger { display:flex; }
     .nav-links {
-      display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:rgba(26,35,126,0.97); backdrop-filter:blur(16px); padding:1.2rem 1.5rem; gap:0.5rem; border-top:1px solid rgba(66,165,245,0.15);
+      display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--navy-a97); backdrop-filter:blur(16px); padding:1.2rem 1.5rem; gap:0.5rem; border-top:1px solid var(--sky-a15);
+    }
+    .js .nav-links {
       /* cerrado: enrollado contra la barra */
       opacity:0; visibility:hidden; pointer-events:none;
       clip-path:inset(0 0 100% 0); transform:translateY(-6px);
       transition:clip-path 200ms var(--ease-drawer), transform 200ms var(--ease-drawer), opacity 150ms ease-out, visibility 0s 200ms;
     }
-    .nav-links.open {
+    .js .nav-links.open {
       opacity:1; visibility:visible; pointer-events:auto;
       clip-path:inset(0 0 0 0); transform:none;
       transition:clip-path 260ms var(--ease-drawer), transform 260ms var(--ease-drawer), opacity 180ms ease-out, visibility 0s;
     }
     .nav-links li { width:100%; }
-    .nav-links a { display:block; padding:0.6rem 0; font-size:0.85rem; border-bottom:1px solid rgba(66,165,245,0.1); }
+    .nav-links a { display:block; padding:0.6rem 0; font-size:0.85rem; border-bottom:1px solid var(--sky-a10); }
     .nav-links .nav-cta { display:inline-block; margin-top:0.5rem; border-bottom:none; }
     .nav-links .lang-btn { margin-top:0.5rem; }
-    .hero { grid-template-columns:1fr; }
+    .hero { grid-template-columns:minmax(0, 1fr); }
     .hero-left { padding:5rem 2rem 2rem; }
     .hero-right { padding:2rem; }
     .container { padding:0 1.5rem; }
-    .sobre-grid, .tray-grid, .contact-grid { grid-template-columns:1fr; gap:2.5rem; }
+    .sobre-grid, .tray-grid, .contact-grid { grid-template-columns:minmax(0, 1fr); gap:2.5rem; }
     .sobre-left { position:static; }
-    .esp-grid { grid-template-columns:1fr 1fr; }
-    .hor-grid { grid-template-columns:1fr; }
-    .rev-grid { grid-template-columns:1fr; }
+    .esp-grid { grid-template-columns:minmax(0, 1fr) minmax(0, 1fr); }
+    .hor-grid { grid-template-columns:minmax(0, 1fr); }
+    .rev-grid { grid-template-columns:minmax(0, 1fr); }
     .footer-inner { flex-direction:column; gap:1rem; text-align:center; }
     .footer-cedulas { text-align:center; }
   }
   @media (max-width:600px) {
-    .esp-grid { grid-template-columns:1fr; }
+    .esp-grid { grid-template-columns:minmax(0, 1fr); }
     .esp-card { padding:1.6rem 1.5rem; }
   }
 
@@ -526,8 +575,8 @@
 
   /* ── MOBILE MENU · REDUCED MOTION ── */
   @media (max-width:960px) and (prefers-reduced-motion:reduce) {
-    .nav-links { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s 150ms; }
-    .nav-links.open { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s; }
+    .js .nav-links { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s 150ms; }
+    .js .nav-links.open { clip-path:none; transform:none; transition:opacity 150ms ease, visibility 0s; }
     .hamburger span { transition:none; }
   }
 
@@ -537,14 +586,13 @@
     html { scroll-behavior:auto; }
     .slider-track { animation:none; }
     .hero-eyebrow, .hero-title, .hero-subtitle, .hero-actions, .hero-photo-wrap { animation-name:fadeIn; }
-    .nav-logo img:hover,
     .btn-wa:hover:not(:active), .btn-doc:hover:not(:active),
     .btn-wa-big:hover:not(:active), .btn-doc-big:hover:not(:active) { transform:none; }
   }
 
   /* ── REDUCED TRANSPARENCY ── */
   @media (prefers-reduced-transparency:reduce) {
-    nav.scrolled { background:rgba(26,35,126,0.97); -webkit-backdrop-filter:none; backdrop-filter:none; }
+    nav.scrolled { background:var(--navy-a97); -webkit-backdrop-filter:none; backdrop-filter:none; }
   }
 
   /* ── LEGIBILIDAD: tamaños mínimos (impeccable / taste-skill) ── */
@@ -557,12 +605,25 @@
   .cedula-item span, .form-text span, .tl-where, .memb-item, .rating-details span { font-size:0.875rem; }
   .tag, .rev-author, .rev-source, .footer-copy, .footer-cedulas, .btn-sub { font-size:0.8rem; }
   h3.section-tag { font-weight:500; }
-  .nav-brand-sub { color:#90caf9; }
+  .nav-brand-sub { color:var(--sky-soft); }
+
+  /* ── HALLMARK POLISH ── */
+  h1, h2, h3 { overflow-wrap:break-word; min-width:0; text-wrap:balance; }
+  :where(a, button, [tabindex]):focus-visible { outline:2px solid var(--blue); outline-offset:3px; transition:none; }
+  :where(nav, .hero, .especialidades, .resenas, footer, .page-header, header) :where(a, button):focus-visible { outline-color:var(--sky-soft); }
+  button:disabled { opacity:0.5; cursor:not-allowed; }
+  footer { color:var(--white-a70); }
+  .nav-links a, .lang-btn { font-size:0.85rem; }
+  .nav-brand-sub, .slider-label, .section-tag, .cedulas h3, .hor-card-head, .hor-card-head span,
+  .precio-card .precio-label, .ci-label, .rev-author { font-size:0.85rem; }
+  .esp-num, .precio-card .precio-num, .rating-big { font-variant-numeric:tabular-nums; }
+  .btn-doc { background:transparent; color:var(--sky-soft); box-shadow:inset 0 0 0 1px var(--sky); }
+  @media (hover:hover) and (pointer:fine) { .btn-doc:hover { background:var(--sky-a15); } }
 </style>
 </head>
 <body>
 
-<video id="dna-bg" autoplay loop muted playsinline>
+<video id="dna-bg" autoplay loop muted playsinline poster="dna-poster.jpg">
   <source src="dna-small.mp4" type="video/mp4">
 </video>
 
@@ -573,7 +634,7 @@
     <img src="WhatsApp%20Image%202026-04-03%20at%2014.50.36.jpeg" alt="Logo Dr. Kershenovich">
     <div class="nav-brand">
       <span class="nav-brand-name">Dr. Ronny Kershenovich Sefchovich</span>
-      <span class="nav-brand-sub"><span class="lang-es">Médico Genetista · CDMX</span><span class="lang-en">Medical Geneticist · CDMX</span></span>
+      <span class="nav-brand-sub"><span class="lang-es">Médico Genetista, CDMX</span><span class="lang-en">Medical Geneticist, CDMX</span></span>
     </div>
   </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false">
@@ -586,7 +647,7 @@
     <li><a href="#horarios"><span class="lang-es">Horarios</span><span class="lang-en">Schedule</span></a></li>
     <li><a href="prensa.html"><span class="lang-es">En los Medios</span><span class="lang-en">In the Media</span></a></li>
     <li><a href="#contacto" class="nav-cta"><span class="lang-es">Agenda tu consulta</span><span class="lang-en">Book your appointment</span></a></li>
-    <li><button class="lang-btn" onclick="toggleLang()">EN / ES</button></li>
+    <li><button class="lang-btn" onclick="toggleLang()"><span class="lang-es" lang="en">English</span><span class="lang-en" lang="es">Español</span></button></li>
   </ul>
 </nav>
 
@@ -594,19 +655,19 @@
 <section class="hero" id="inicio">
   <div class="hero-left">
     <h1 class="hero-title">
-      Dr. Ronny<br><em>Kershenovich</em><br>Sefchovich
+      Dr. Ronny<br>Kershenovich<br>Sefchovich
     </h1>
     <p class="hero-subtitle">
-      <span class="lang-es">Médico genetista en Ciudad de México · más de 20 años de experiencia</span>
-      <span class="lang-en">Medical geneticist in Mexico City · 20+ years of experience</span>
+      <span class="lang-es">Médico genetista en Ciudad de México, con más de 20 años de experiencia.</span>
+      <span class="lang-en">Medical geneticist in Mexico City, with 20+ years of experience.</span>
     </p>
     <div class="hero-actions">
-      <a href="https://wa.me/525522712594" class="btn-wa" target="_blank">
+      <a href="https://wa.me/525522712594" class="btn-wa" target="_blank" rel="noopener noreferrer">
         <img src="WhatsApp.svg.png" alt="WhatsApp" style="height:20px;width:20px;object-fit:contain;">
         <span class="lang-es">WhatsApp</span>
         <span class="lang-en">WhatsApp</span>
       </a>
-      <a href="https://www.doctoralia.com.mx/ronny-kershenovich-sefchovich/genetista/cuajimalpa-de-morelos" class="btn-doc" target="_blank">
+      <a href="https://www.doctoralia.com.mx/ronny-kershenovich-sefchovich/genetista/cuajimalpa-de-morelos" class="btn-doc" target="_blank" rel="noopener noreferrer">
         <span class="lang-es">Agenda en Doctoralia</span>
         <span class="lang-en">Book on Doctoralia</span>
       </a>
@@ -641,7 +702,7 @@
       <span class="slider-item"><span class="si-dot"></span>American Porphyria Foundation</span>
       <span class="slider-item"><span class="si-dot"></span>Hospital General de México</span>
       <span class="slider-item"><span class="si-dot"></span>Face2Gene</span>
-      <span class="slider-item"><span class="si-dot"></span>FEMEXER</span>
+      <span class="slider-item"><span class="si-dot"></span>Federación Mexicana de Enfermedades Raras</span>
       <!-- duplicate for seamless loop -->
       <span class="slider-item"><span class="si-dot"></span>Géntodos</span>
       <span class="slider-item"><span class="si-dot"></span>Centro Médico ABC</span>
@@ -654,7 +715,7 @@
       <span class="slider-item"><span class="si-dot"></span>American Porphyria Foundation</span>
       <span class="slider-item"><span class="si-dot"></span>Hospital General de México</span>
       <span class="slider-item"><span class="si-dot"></span>Face2Gene</span>
-      <span class="slider-item"><span class="si-dot"></span>FEMEXER</span>
+      <span class="slider-item"><span class="si-dot"></span>Federación Mexicana de Enfermedades Raras</span>
     </div>
   </div>
 </div>
@@ -665,48 +726,48 @@
     <div class="sobre-grid">
       <div class="sobre-left">
         <h2 class="section-title">
-          <span class="lang-es">Mi formación <em>académica</em></span>
-          <span class="lang-en">My academic <em>background</em></span>
+          <span class="lang-es">Mi formación académica</span>
+          <span class="lang-en">My academic background</span>
         </h2>
         <div class="formacion">
           <div class="form-item">
-            <div class="form-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div class="form-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
             <div class="form-text">
               <strong>
                 <span class="lang-es">Médico Cirujano</span>
                 <span class="lang-en">Medical Degree (M.D.)</span>
               </strong>
               <span>
-                <span class="lang-es">Universidad Anáhuac del Norte · Título UNAM</span>
-                <span class="lang-en">Universidad Anáhuac del Norte · UNAM degree</span>
+                <span class="lang-es">Universidad Anáhuac del Norte, Título UNAM</span>
+                <span class="lang-en">Universidad Anáhuac del Norte, UNAM degree</span>
               </span>
             </div>
           </div>
           <div class="form-item">
-            <div class="form-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/><path d="m17 6-2.5-2.5"/><path d="m14 8-1-1"/><path d="m7 18 2.5 2.5"/><path d="m3.5 14.5.5.5"/><path d="m20 9 .5.5"/><path d="m6.5 12.5 1 1"/><path d="M2 9c6.667 6 13.333 0 20 6"/></svg></div>
+            <div class="form-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/><path d="m17 6-2.5-2.5"/><path d="m14 8-1-1"/><path d="m7 18 2.5 2.5"/><path d="m3.5 14.5.5.5"/><path d="m20 9 .5.5"/><path d="m6.5 12.5 1 1"/><path d="M2 9c6.667 6 13.333 0 20 6"/></svg></div>
             <div class="form-text">
               <strong>
                 <span class="lang-es">Especialidad en Genética Médica</span>
                 <span class="lang-en">Medical Genetics Specialty</span>
               </strong>
               <span>
-                <span class="lang-es">Hospital General de México · UNAM</span>
-                <span class="lang-en">Hospital General de México · UNAM</span>
+                <span class="lang-es">Hospital General de México, UNAM</span>
+                <span class="lang-en">Hospital General de México, UNAM</span>
               </span>
             </div>
           </div>
           <div class="form-item">
-            <div class="form-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div class="form-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
             <div class="form-text">
               <strong>
-                <span class="lang-es">Jefe de Residentes — Genética Médica</span>
-                <span class="lang-en">Chief Resident — Medical Genetics</span>
+                <span class="lang-es">Jefe de Residentes, Genética Médica</span>
+                <span class="lang-en">Chief Resident, Medical Genetics</span>
               </strong>
-              <span>Hospital General de México · 2002–2003</span>
+              <span>Hospital General de México, 2002 a 2003</span>
             </div>
           </div>
           <div class="form-item">
-            <div class="form-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
+            <div class="form-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg></div>
             <div class="form-text">
               <strong>
                 <span class="lang-es">Servicio Social</span>
@@ -737,8 +798,8 @@
             <span>4110957</span>
           </div>
           <div class="cedula-item">
-            <span class="lang-es">Certificado y Recertificado — Consejo Mexicano de Genética, A.C.</span>
-            <span class="lang-en">Certified & Recertified — Mexican Council of Genetics, A.C.</span>
+            <span class="lang-es">Certificado y Recertificado, Consejo Mexicano de Genética, A.C.</span>
+            <span class="lang-en">Certified & Recertified, Mexican Council of Genetics, A.C.</span>
             <span>No. 193</span>
           </div>
         </div>
@@ -750,14 +811,14 @@
 
       <div class="sobre-right">
         <h2 class="section-title">
-          <span class="lang-es">Sobre <em>mí</em></span>
-          <span class="lang-en">About <em>me</em></span>
+          <span class="lang-es">Sobre mí</span>
+          <span class="lang-en">About me</span>
         </h2>
         <p class="lang-es">
           Soy médico genetista y llevo más de veinte años dedicado a la práctica clínica. Me formé como médico cirujano en la Universidad Anáhuac del Norte e hice mi especialidad en Genética Médica en el Hospital General de México, con aval de la UNAM.
         </p>
         <p class="lang-en">
-          I'm a medical geneticist with more than twenty years of clinical practice. I trained as a physician at Universidad Anáhuac del Norte and completed my specialty in Medical Genetics at Hospital General de México, endorsed by UNAM.
+          I’m a medical geneticist with more than twenty years of clinical practice. I trained as a physician at Universidad Anáhuac del Norte and completed my specialty in Medical Genetics at Hospital General de México, endorsed by UNAM.
         </p>
         <p class="lang-es">
           Acompaño a pacientes y familias en todas las etapas de la vida: desde el diagnóstico prenatal y las enfermedades genéticas en recién nacidos y niños, hasta la oncogenética, las enfermedades del tejido conectivo y las enfermedades raras. En todos estos casos, un diagnóstico preciso importa tanto como escucharte y que entiendas cada paso.
@@ -798,8 +859,8 @@
 <section class="especialidades" id="especialidades">
   <div class="container">
     <h2 class="section-title">
-      <span class="lang-es">¿En qué te<br>puedo <em>ayudar?</em></span>
-      <span class="lang-en">How can<br><em>I help you?</em></span>
+      <span class="lang-es">¿En qué te<br>puedo ayudar?</span>
+      <span class="lang-en">How can<br>I help you?</span>
     </h2>
     <p class="esp-intro lang-es">Diagnostico y acompaño condiciones hereditarias en todas las etapas de la vida, desde el embarazo hasta la edad adulta.</p>
     <p class="esp-intro lang-en">I diagnose and care for hereditary conditions at every stage of life, from pregnancy through adulthood.</p>
@@ -822,20 +883,20 @@
       </div>
       <div class="esp-card">
         <h3><span class="lang-es">Infertilidad de Causa Genética</span><span class="lang-en">Genetic-Cause Infertility</span></h3>
-        <p><span class="lang-es">Estudio cromosómico en parejas con infertilidad o pérdidas gestacionales repetidas. Soy miembro de la American Society of Reproductive Medicine.</span><span class="lang-en">Chromosomal study in couples with infertility or recurrent pregnancy loss. I'm a member of the American Society of Reproductive Medicine.</span></p>
+        <p><span class="lang-es">Estudio cromosómico en parejas con infertilidad o pérdidas gestacionales repetidas. Soy miembro de la American Society of Reproductive Medicine.</span><span class="lang-en">Chromosomal study in couples with infertility or recurrent pregnancy loss. I’m a member of the American Society of Reproductive Medicine.</span></p>
       </div>
       <div class="esp-card">
         <h3><span class="lang-es">Revisión de Pruebas Genéticas</span><span class="lang-en">Genetic Test Review</span></h3>
-        <p><span class="lang-es">Si ya tienes resultados de paneles genómicos, secuenciación masiva (NGS) o arrays cromosómicos, te ayudo a entender qué significan.</span><span class="lang-en">If you already have results from genomic panels, next-generation sequencing (NGS) or chromosomal arrays, I'll help you understand what they mean.</span></p>
+        <p><span class="lang-es">Si ya tienes resultados de paneles genómicos, secuenciación masiva (NGS) o arrays cromosómicos, te ayudo a entender qué significan.</span><span class="lang-en">If you already have results from genomic panels, massively parallel sequencing (NGS) or chromosomal arrays, I’ll help you understand what they mean.</span></p>
       </div>
       <div class="esp-card">
         <h3><span class="lang-es">Enfermedades del Tejido Conectivo</span><span class="lang-en">Connective Tissue Diseases</span></h3>
         <p><span class="lang-es">Diagnóstico y manejo de condiciones como el síndrome de Ehlers-Danlos, Marfan y otras displasias del tejido conectivo de base hereditaria.</span><span class="lang-en">Diagnosis and management of conditions such as Ehlers-Danlos syndrome, Marfan, and other hereditary connective tissue dysplasias.</span></p>
       </div>
-      <a class="esp-card esp-cta" href="https://wa.me/525522712594" target="_blank" rel="noopener">
-        <h3><span class="lang-es">¿No ves tu caso aquí?</span><span class="lang-en">Don't see your case here?</span></h3>
+      <a class="esp-card esp-cta" href="https://wa.me/525522712594" target="_blank" rel="noopener noreferrer">
+        <h3><span class="lang-es">¿No ves tu caso aquí?</span><span class="lang-en">Don’t see your case here?</span></h3>
         <p><span class="lang-es">Escríbeme por WhatsApp con tu pregunta.</span><span class="lang-en">Message me on WhatsApp with your question.</span></p>
-        <span class="esp-cta-link"><span class="lang-es">Escribir por WhatsApp →</span><span class="lang-en">Message on WhatsApp →</span></span>
+        <span class="esp-cta-link"><span class="lang-es">Escribir por WhatsApp</span><span class="lang-en">Message on WhatsApp</span></span>
       </a>
     </div>
   </div>
@@ -847,18 +908,18 @@
     <div class="tray-grid">
       <div>
         <h2 class="section-title">
-          <span class="lang-es">Mi trayectoria <em>profesional</em></span>
-          <span class="lang-en">My professional <em>career</em></span>
+          <span class="lang-es">Mi trayectoria profesional</span>
+          <span class="lang-en">My professional career</span>
         </h2>
         <div class="timeline">
           <div class="tl-item">
             <div class="tl-role lang-es">Director Médico</div>
             <div class="tl-role lang-en">Medical Director</div>
-            <div class="tl-where"><a href="https://gentodos.com/" target="_blank" rel="noopener" style="color:inherit;">Géntodos</a></div>
+            <div class="tl-where"><a href="https://gentodos.com/" target="_blank" rel="noopener noreferrer" style="color:inherit;">Géntodos</a></div>
           </div>
           <div class="tl-item">
-            <div class="tl-role lang-es">Presidente — Práctica Médica Grupal de Genética</div>
-            <div class="tl-role lang-en">President — Group Medical Practice of Genetics</div>
+            <div class="tl-role lang-es">Presidente, Práctica Médica Grupal de Genética</div>
+            <div class="tl-role lang-en">President, Group Medical Practice of Genetics</div>
             <div class="tl-where">Centro Médico ABC</div>
           </div>
           <div class="tl-item">
@@ -885,8 +946,8 @@
           <div class="tl-item">
             <div class="tl-role lang-es">Médico Consultor</div>
             <div class="tl-role lang-en">Medical Consultant</div>
-            <div class="tl-where lang-es">FEMEXER — Federación Mexicana de Enfermedades Raras</div>
-            <div class="tl-where lang-en">FEMEXER — Mexican Federation of Rare Diseases</div>
+            <div class="tl-where lang-es">FEMEXER, Federación Mexicana de Enfermedades Raras</div>
+            <div class="tl-where lang-en">FEMEXER, Mexican Federation of Rare Diseases</div>
           </div>
         </div>
         <h3 class="section-tag" style="margin-top:1rem;">
@@ -900,16 +961,16 @@
             <div class="tl-where">Instituto Nacional de Medicina Genómica (INMEGEN)</div>
           </div>
           <div class="tl-item">
-            <div class="tl-role lang-es">Profesor Titular — Alta Especialidad en Enfermedades Hereditarias</div>
-            <div class="tl-role lang-en">Professor — Advanced Specialty in Hereditary Diseases</div>
-            <div class="tl-where">INMEGEN · UNAM</div>
+            <div class="tl-role lang-es">Profesor Titular, Alta Especialidad en Enfermedades Hereditarias</div>
+            <div class="tl-role lang-en">Professor, Advanced Specialty in Hereditary Diseases</div>
+            <div class="tl-where">INMEGEN y UNAM</div>
           </div>
         </div>
       </div>
       <div>
         <h2 class="section-title">
-          <span class="lang-es">Sociedades a las que <em>pertenezco</em></span>
-          <span class="lang-en">Societies I <em>belong to</em></span>
+          <span class="lang-es">Sociedades a las que pertenezco</span>
+          <span class="lang-en">Societies I belong to</span>
         </h2>
         <div class="memb-list">
           <div class="memb-item">Consejo Mexicano de Genética Humana</div>
@@ -933,32 +994,32 @@
 <section class="horarios" id="horarios">
   <div class="container">
     <h2 class="section-title">
-      <span class="lang-es">Horarios de <em>consulta</em></span>
-      <span class="lang-en">Consultation <em>schedule</em></span>
+      <span class="lang-es">Horarios de consulta</span>
+      <span class="lang-en">Consultation schedule</span>
     </h2>
     <div class="hor-grid">
       <div class="hor-card">
         <div class="hor-card-head">
           <span class="lang-es">Consulta Presencial</span>
           <span class="lang-en">In-Person Consultation</span>
-          <span>Centro Médico ABC · Santa Fe</span>
+          <span>Centro Médico ABC, Santa Fe</span>
         </div>
         <table class="hor-table">
-          <tr><td><span class="lang-es">Miércoles</span><span class="lang-en">Wednesday</span></td><td>4:00 – 8:00 pm</td></tr>
-          <tr><td><span class="lang-es">Jueves</span><span class="lang-en">Thursday</span></td><td>4:00 – 8:00 pm</td></tr>
+          <tr><td><span class="lang-es">Miércoles</span><span class="lang-en">Wednesday</span></td><td>4:00 a 8:00 pm</td></tr>
+          <tr><td><span class="lang-es">Jueves</span><span class="lang-en">Thursday</span></td><td>4:00 a 8:00 pm</td></tr>
         </table>
       </div>
       <div class="hor-card">
         <div class="hor-card-head">
           <span class="lang-es">Consulta en Línea</span>
           <span class="lang-en">Online Consultation</span>
-          <span>Telemedicina · Videollamada</span>
+          <span>Telemedicina por videollamada</span>
         </div>
         <table class="hor-table">
-          <tr><td><span class="lang-es">Lunes</span><span class="lang-en">Monday</span></td><td>4:00 – 7:00 pm</td></tr>
-          <tr><td><span class="lang-es">Martes</span><span class="lang-en">Tuesday</span></td><td>4:00 – 7:00 pm</td></tr>
-          <tr><td><span class="lang-es">Viernes</span><span class="lang-en">Friday</span></td><td>6:00 – 8:00 pm</td></tr>
-          <tr><td><span class="lang-es">Sábado</span><span class="lang-en">Saturday</span></td><td>9:00 – 11:00 am</td></tr>
+          <tr><td><span class="lang-es">Lunes</span><span class="lang-en">Monday</span></td><td>4:00 a 7:00 pm</td></tr>
+          <tr><td><span class="lang-es">Martes</span><span class="lang-en">Tuesday</span></td><td>4:00 a 7:00 pm</td></tr>
+          <tr><td><span class="lang-es">Viernes</span><span class="lang-en">Friday</span></td><td>6:00 a 8:00 pm</td></tr>
+          <tr><td><span class="lang-es">Sábado</span><span class="lang-en">Saturday</span></td><td>9:00 a 11:00 am</td></tr>
         </table>
       </div>
     </div>
@@ -971,30 +1032,30 @@
 <section class="resenas" id="resenas">
   <div class="container">
     <h2 class="section-title">
-      <span class="lang-es">Lo que dicen mis <em>pacientes</em></span>
-      <span class="lang-en">What my <em>patients</em> say</span>
+      <span class="lang-es">Lo que dicen mis pacientes</span>
+      <span class="lang-en">What my patients say</span>
     </h2>
     <div class="rev-grid">
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text lang-es">"Excelente médico y muy profesional. Ayuda a procesar las cosas más fácil, generando confianza y seguridad. Explica todo el proceso y hace que uno se vaya relajando y se sienta mejor."</p>
-        <p class="rev-text lang-en">"Excellent doctor and very professional. He helps you process things more easily, generating confidence and security. He explains everything and makes you feel at ease."</p>
+        <p class="rev-text lang-es">“Excelente médico y muy profesional. Ayuda a procesar las cosas más fácil, generando confianza y seguridad. Explica todo el proceso y hace que uno se vaya relajando y se sienta mejor.”</p>
+        <p class="rev-text lang-en">“Excellent doctor and very professional. He helps you process things more easily, generating confidence and security. He explains everything and makes you feel at ease.”</p>
         <div class="rev-author lang-es">Paciente verificado</div>
         <div class="rev-author lang-en">Verified patient</div>
-        <div class="rev-source">Doctoralia · <span class="lang-es">Revisión de pruebas genéticas</span><span class="lang-en">Genetic test review</span></div>
+        <div class="rev-source">Doctoralia, <span class="lang-es">Revisión de pruebas genéticas</span><span class="lang-en">Genetic test review</span></div>
       </div>
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text lang-es">"El Dr. Kershenovich te explica todo con mucha claridad y paciencia. En un tema tan delicado como la genética, transmite calma y genera mucha confianza desde el primer momento."</p>
-        <p class="rev-text lang-en">"Dr. Kershenovich explains everything with great clarity and patience. On such a sensitive topic as genetics, he transmits calm and generates great confidence from the very first moment."</p>
+        <p class="rev-text lang-es">“El Dr. Kershenovich te explica todo con mucha claridad y paciencia. En un tema tan delicado como la genética, transmite calma y genera mucha confianza desde el primer momento.”</p>
+        <p class="rev-text lang-en">“Dr. Kershenovich explains everything with great clarity and patience. On such a sensitive topic as genetics, he transmits calm and generates great confidence from the very first moment.”</p>
         <div class="rev-author lang-es">Paciente verificado</div>
         <div class="rev-author lang-en">Verified patient</div>
-        <div class="rev-source">Centro Médico ABC · Santa Fe</div>
+        <div class="rev-source">Centro Médico ABC, Santa Fe</div>
       </div>
       <div class="rev-card">
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text lang-es">"Trato muy humano y profundo conocimiento. Nos orientó en un caso familiar complejo y sentimos que estábamos en las mejores manos. Totalmente recomendado."</p>
-        <p class="rev-text lang-en">"Very human treatment and deep knowledge. He guided us through a complex family case and we felt we were in the best hands. Highly recommended."</p>
+        <p class="rev-text lang-es">“Trato muy humano y profundo conocimiento. Nos orientó en un caso familiar complejo y sentimos que estábamos en las mejores manos. Totalmente recomendado.”</p>
+        <p class="rev-text lang-en">“Very human treatment and deep knowledge. He guided us through a complex family case and we felt we were in the best hands. Highly recommended.”</p>
         <div class="rev-author lang-es">Paciente verificado</div>
         <div class="rev-author lang-en">Verified patient</div>
         <div class="rev-source">Top Doctors</div>
@@ -1007,7 +1068,7 @@
         <strong class="lang-en">Recommended by 100% of my patients</strong>
         <span class="lang-es">Calificación verificada en plataformas médicas independientes</span>
         <span class="lang-en">Verified rating on independent medical platforms</span>
-        <span style="margin-top:0.4rem; display:block;">Doctoralia · Top Doctors · Centro Médico ABC</span>
+        <span style="margin-top:0.4rem; display:block;">Doctoralia, Top Doctors y Centro Médico ABC</span>
       </div>
     </div>
   </div>
@@ -1019,8 +1080,8 @@
     <div class="contact-grid">
       <div>
         <h2 class="section-title">
-          <span class="lang-es">Agenda tu <em>consulta</em></span>
-          <span class="lang-en">Book your <em>appointment</em></span>
+          <span class="lang-es">Agenda tu consulta</span>
+          <span class="lang-en">Book your appointment</span>
         </h2>
         <p style="color:var(--gray); font-size:0.9rem; line-height:1.7;" class="lang-es">
           Puedes agendar tu consulta conmigo por WhatsApp o en Doctoralia.
@@ -1029,7 +1090,7 @@
           You can book your appointment with me on WhatsApp or through Doctoralia.
         </p>
         <div class="contact-actions">
-          <a href="https://wa.me/525522712594" class="btn-wa-big" target="_blank">
+          <a href="https://wa.me/525522712594" class="btn-wa-big" target="_blank" rel="noopener noreferrer">
             <img src="WhatsApp.svg.png" alt="WhatsApp" style="height:28px;width:28px;object-fit:contain;flex-shrink:0;">
             <div>
               <strong class="lang-es">WhatsApp directo</strong>
@@ -1037,7 +1098,7 @@
               <span class="btn-sub">+52 55 2271 2594</span>
             </div>
           </a>
-          <a href="https://www.doctoralia.com.mx/ronny-kershenovich-sefchovich/genetista/cuajimalpa-de-morelos" class="btn-doc-big" target="_blank">
+          <a href="https://www.doctoralia.com.mx/ronny-kershenovich-sefchovich/genetista/cuajimalpa-de-morelos" class="btn-doc-big" target="_blank" rel="noopener noreferrer">
             <span class="btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
             <div>
               <strong class="lang-es">Agendar en Doctoralia</strong>
@@ -1055,28 +1116,28 @@
         </h3>
         <div class="contact-info">
           <div class="ci-item">
-            <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="ci-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <div class="ci-label lang-es">Consultorio</div>
               <div class="ci-label lang-en">Office</div>
               <div class="ci-value lang-es">
-                Centro Médico ABC · Campus Santa Fe<br>
+                Centro Médico ABC, Campus Santa Fe<br>
                 Av. Carlos Graef Fernández No. 154,<br>
                 Edificio de Ginecología-Obstetricia y Pediatría,<br>
                 Planta Baja, Consultorio 1B<br>
-                Col. Santa Fe, Cuajimalpa, 05348 · CDMX
+                Col. Santa Fe, Cuajimalpa, 05348, CDMX
               </div>
               <div class="ci-value lang-en">
-                Centro Médico ABC · Santa Fe Campus<br>
+                Centro Médico ABC, Santa Fe Campus<br>
                 Av. Carlos Graef Fernández No. 154,<br>
                 Gynecology-Obstetrics & Pediatrics Building,<br>
                 Ground Floor, Office 1B<br>
-                Col. Santa Fe, Cuajimalpa, 05348 · CDMX
+                Col. Santa Fe, Cuajimalpa, 05348, CDMX
               </div>
             </div>
           </div>
           <div class="ci-item">
-            <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.35 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l1.17-1.17a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+            <div class="ci-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.35 2 2 0 0 1 3.9 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.86 5.86l1.17-1.17a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
             <div>
               <div class="ci-label lang-es">Teléfonos</div>
               <div class="ci-label lang-en">Phone numbers</div>
@@ -1091,7 +1152,7 @@
             </div>
           </div>
           <div class="ci-item">
-            <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div class="ci-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
             <div>
               <div class="ci-label lang-es">Correo electrónico</div>
               <div class="ci-label lang-en">Email</div>
@@ -1100,10 +1161,11 @@
           </div>
         </div>
         <div class="mapa-wrap">
-          <iframe
-            src="https://maps.google.com/maps?q=Centro+M%C3%A9dico+ABC+Campus+Santa+Fe,+Av.+Carlos+Graef+Fern%C3%A1ndez+154,+Cuajimalpa,+Ciudad+de+M%C3%A9xico&output=embed"
-            allowfullscreen="" loading="lazy">
-          </iframe>
+          <button type="button" class="mapa-load" onclick="loadMap(this)"
+            data-src="https://maps.google.com/maps?q=Centro+M%C3%A9dico+ABC+Campus+Santa+Fe,+Av.+Carlos+Graef+Fern%C3%A1ndez+154,+Cuajimalpa,+Ciudad+de+M%C3%A9xico&amp;output=embed">
+            <span class="mapa-title"><span class="lang-es">Ver mapa</span><span class="lang-en">Show map</span></span>
+            <span class="mapa-note"><span class="lang-es">Se carga desde Google Maps al tocarlo</span><span class="lang-en">Loads from Google Maps when tapped</span></span>
+          </button>
         </div>
       </div>
     </div>
@@ -1115,16 +1177,20 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="lang-es">Dr. Ronny Kershenovich Sefchovich · Médico Genetista</span>
-        <span class="lang-en">Dr. Ronny Kershenovich Sefchovich · Medical Geneticist</span>
+        <span class="lang-es">Dr. Ronny Kershenovich Sefchovich, Médico Genetista</span>
+        <span class="lang-en">Dr. Ronny Kershenovich Sefchovich, Medical Geneticist</span>
       </div>
       <div class="footer-copy">
-        © 2026 ·<span class="lang-es">Genética Médica y Medicina Genómica</span><span class="lang-en">Medical Genetics and Genomic Medicine</span>
+        © 2026 <span class="lang-es">Genética Médica y Medicina Genómica</span><span class="lang-en">Medical Genetics and Genomic Medicine</span>
       </div>
       <div class="footer-cedulas">
-        <span class="lang-es">Cédula Prof.: 2792071 · Cédula Esp.: 4110957<br>Certificado CMG No. 193</span>
-        <span class="lang-en">Prof. License: 2792071 · Specialist License: 4110957<br>CMG Certificate No. 193</span>
+        <span class="lang-es">Cédula Prof.: 2792071<br>Cédula Esp.: 4110957<br>Certificado CMG No. 193</span>
+        <span class="lang-en">Prof. License: 2792071<br>Specialist License: 4110957<br>CMG Certificate No. 193</span>
       </div>
+    </div>
+    <div class="footer-legal">
+      <span class="lang-es">La información de este sitio es general y no sustituye una consulta médica.<br><a href="aviso-privacidad.html">Aviso de privacidad</a>. Este sitio no usa cookies.</span>
+      <span class="lang-en">The information on this site is general and does not replace a medical consultation.<br><a href="aviso-privacidad.html">Privacy notice (Spanish)</a>. This site uses no cookies.</span>
     </div>
   </div>
 </footer>
@@ -1146,8 +1212,6 @@
 
   function toggleLang() {
     document.body.classList.toggle('en');
-    const btn = document.querySelector('.lang-btn');
-    btn.textContent = document.body.classList.contains('en') ? 'ES / EN' : 'EN / ES';
   }
 
   // Navbar scroll effect
@@ -1155,6 +1219,16 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
+
+  // Carga Google Maps solo cuando la persona lo pide (sin cookies de terceros antes)
+  function loadMap(btn) {
+    const f = document.createElement('iframe');
+    f.src = btn.dataset.src;
+    f.title = 'Mapa del consultorio';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    btn.replaceWith(f);
+  }
 
   // Hace que iPhone muestre el efecto al presionar (:active)
   document.addEventListener('touchstart', () => {}, { passive: true });

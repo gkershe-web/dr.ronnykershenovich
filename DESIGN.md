@@ -9,7 +9,7 @@ colors:
   sky: "#42a5f5"
   sky-soft: "#90caf9"
   bg-light: "#f4f7fb"
-  white: "#ffffff"
+  white: "#f7f9ff"
   text: "#0d1b4b"
   gray: "#56637f"
   border: "#dce3f0"
@@ -103,9 +103,10 @@ La referencia de movimiento es una app de Apple: respuesta inmediata al tocar, t
 
 ## Typography
 
-- **Cormorant Garamond 300** para nombre, títulos de sección y títulos de tarjeta. Una palabra en cursiva y color `sky` dentro del título es parte de la identidad (por ejemplo "Sobre *mí*").
+- **Cormorant Garamond 300** para nombre, títulos de sección y títulos de tarjeta. Los títulos van en un solo estilo y color: sin palabras en cursiva ni de otro color dentro del título (regla de Hallmark).
 - **DM Sans** para todo lo demás. El texto corrido va a 15–17px; nada de contenido baja de 14px.
-- **Etiquetas en mayúsculas** con tracking amplio solo a 12px o más y solo como subtítulo real (encabezado de tarjeta de horario, "Cargos anteriores"). No se ponen etiquetas encima de un título que ya dice lo mismo.
+- **Etiquetas** (menú, subtítulos, tipo de nota en Prensa) en DM Sans, tamaño normal o un poco menor, en minúsculas normales y sin espaciado extra. Nada en MAYÚSCULAS espaciadas. No se ponen etiquetas encima de un título que ya dice lo mismo.
+- **Puntuación:** no se unen datos con "·" ni con guiones largos; se usan comas, saltos de línea o "y". Las comillas son tipográficas (“ ”, ’).
 
 ## Layout
 
@@ -135,5 +136,7 @@ La referencia de movimiento es una app de Apple: respuesta inmediata al tocar, t
 - Do escribir en primera persona del doctor y de tú al lector, sin frases de eslogan ni superlativos sin fuente.
 - Do usar `var(--ease-out)` y `var(--ease-drawer)`; no escribir curvas a mano.
 - Don't poner etiquetas pequeñas encima de los títulos ni numerar secciones (01, 02…).
+- Do escribir todo color y tipografía como token en `:root`; nada de colores sueltos en las reglas (Hallmark lo revisa con `sloplint.mjs`).
+- Do dar a cada enlace y botón un contorno visible al navegar con teclado (`:focus-visible`).
 - Don't usar `transition: all` ni animar `padding`, `width` o `height`.
 - Don't presentar puestos pasados como actuales: el cargo actual es Director Médico en Géntodos.
