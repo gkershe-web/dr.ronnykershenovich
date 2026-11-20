@@ -12,11 +12,14 @@
 /* Hallmark · checked: 2026-11-19 · genre: editorial (inferred)
  * floor: 0 FAIL · fixed: 3, 6a, 7a, 7b, 19, 26a, 26b, 28b, 33, 34, 38i, 38ii, 38iii, 48, 50, 62, 63, 67, F1, F3, F4, F6, F23 · structural: printed (8, 42, 58)
  * built: the project · redesign: polish · v2.0.0 */
+ /* Hallmark · finish-review: subagent · 5 findings · 2 resolved (inglés visible en español; guiones y flechas decorativas) · 3 para el dueño: caricatura, estrellas y 10/10, insignia +20 */
  /* Hallmark · waive 24b · gap: 5px on the hamburger · las tres barras del menú quedan a 7px para que la ✕ gire en su centro */
  /* Hallmark · dismissed 29 · el doctor pidió la barra de vidrio estilo Apple; se vuelve sólida con reducir transparencia */
  /* Hallmark · dismissed 40 · cada sección pone su propio fondo; el color de body solo queda detrás del video de ADN */
  /* Hallmark · dismissed 49 · el botón del mapa cuenta también su gemelo en inglés oculto; se ven dos líneas cortas */
  /* Hallmark · answered F6 · no queda ningún número grande en pantalla; .esp-num ya no está en la página */
+ /* Hallmark · waive 39b · a.esp-card 277px, btn-wa-big 73px, btn-doc-big 90px · la tarjeta ¿No ves tu caso aquí? es entera clicable y los botones grandes de contacto llevan dos líneas, WhatsApp y el teléfono */
+ /* Hallmark · answered F19 · el peso 700 solo sale de strong en cédulas y datos de contacto, como énfasis de lectura */
  /* Hallmark · answered F15 · el espacio entre columnas sigue al contenido: biografía a 5rem, tarjetas a 2rem, contacto a 1.5rem */
   :root {
     --sky-soft: #90caf9;
@@ -84,9 +87,9 @@
   }
 
   /* ── LANG SWITCHER ── */
-  .lang-en { display:none; }
-  body.en .lang-es { display:none; }
-  body.en .lang-en { display:revert; }
+  /* solo un idioma a la vez: gana sobre las reglas que ponen display:block */
+  body:not(.en) .lang-en { display:none !important; }
+  body.en .lang-es { display:none !important; }
 
   /* ── NAV ── */
   nav {
@@ -208,7 +211,7 @@
   }
   .hero-left {
     display:flex; flex-direction:column; justify-content:center;
-    padding:5rem 4rem 5rem 6rem; position:relative; z-index:2;
+    padding:5rem 4rem; position:relative; z-index:2;
   }
   .hero-eyebrow {
     font-size:0.7rem;
@@ -216,7 +219,6 @@
     display:flex; align-items:center; gap:0.8rem;
     animation:fadeUp 400ms var(--ease-out) 0ms both;
   }
-  .hero-eyebrow::before { content:''; width:2rem; height:1px; background:var(--sky); }
   .hero-title {
     font-family:var(--font-display);
     font-size:clamp(2.8rem,4.5vw,4.5rem);
@@ -277,7 +279,6 @@
     color:var(--blue); margin-bottom:0.8rem;
     display:flex; align-items:center; gap:0.7rem;
   }
-  .section-tag::before { content:''; width:1.5rem; height:1px; background:var(--blue); }
   .section-title {
     font-family:var(--font-display);
     font-size:clamp(2rem,3vw,2.8rem); font-weight:300;
@@ -326,7 +327,6 @@
   /* ── ESPECIALIDADES ── */
   .especialidades { background:var(--navy-a82); }
   .especialidades .section-tag { color:var(--sky); }
-  .especialidades .section-tag::before { background:var(--sky); }
   .especialidades .section-title { color:var(--white); }
   .esp-intro { color:var(--white-a55); font-size:0.95rem; line-height:1.8; max-width:560px; margin-bottom:3.5rem; }
   .esp-grid { display:grid; grid-template-columns:repeat(4,minmax(0, 1fr)); gap:1px; background:var(--sky-a10); }
@@ -376,7 +376,6 @@
     padding:0.75rem 0; border-bottom:1px solid var(--border);
     font-size:0.85rem; color:var(--c-3a4a6b);
   }
-  .memb-item::before { content:'→'; color:var(--sky); font-size:0.78rem; flex-shrink:0; margin-top:2px; }
 
   /* ── HORARIOS ── */
   .horarios { background:var(--white); }
@@ -415,7 +414,6 @@
   /* ── RESEÑAS ── */
   .resenas { background:var(--navy-a82); }
   .resenas .section-tag { color:var(--sky); }
-  .resenas .section-tag::before { background:var(--sky); }
   .resenas .section-title { color:var(--white); }
   .rev-grid { display:grid; grid-template-columns:repeat(3,minmax(0, 1fr)); gap:1.5rem; margin-top:2.5rem; }
   .rev-card {
@@ -608,6 +606,8 @@
   .nav-brand-sub { color:var(--sky-soft); }
 
   /* ── HALLMARK POLISH ── */
+  .hero { padding-inline:max(0px, calc((100% - 1200px) / 2)); }
+  @media (min-width:961px) { nav { padding-inline:max(3rem, calc((100% - 1200px) / 2 + 4rem)); } }
   h1, h2, h3 { overflow-wrap:break-word; min-width:0; text-wrap:balance; }
   :where(a, button, [tabindex]):focus-visible { outline:2px solid var(--blue); outline-offset:3px; transition:none; }
   :where(nav, .hero, .especialidades, .resenas, footer, .page-header, header) :where(a, button):focus-visible { outline-color:var(--sky-soft); }
@@ -630,7 +630,6 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <!-- REEMPLAZA src con la ruta de tu logo -->
     <img src="WhatsApp%20Image%202026-04-03%20at%2014.50.36.jpeg" alt="Logo Dr. Kershenovich">
     <div class="nav-brand">
       <span class="nav-brand-name">Dr. Ronny Kershenovich Sefchovich</span>
@@ -805,7 +804,6 @@
         </div>
 
         <!-- ILUSTRACIÓN -->
-        <!-- REEMPLAZA src con la ruta de la caricatura -->
         <img src="WhatsApp%20Image%202026-04-03%20at%2014.57.17.jpeg" alt="Ilustración Dr. Kershenovich" class="ilustracion">
       </div>
 

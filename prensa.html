@@ -12,7 +12,9 @@
 /* Hallmark · checked: 2026-11-19 · genre: editorial (inferred)
  * floor: 0 FAIL · fixed: 3, 6a, 7a, 7b, 19, 26a, 26b, 28b, 33, 34, 38i, 38ii, 38iii, 48, 50, 62, 63, 67, F1, F3, F4, F6, F23 · structural: printed (8, 42, 58)
  * built: the project · redesign: polish · v2.0.0 */
+ /* Hallmark · finish-review: subagent · 5 findings · 2 resolved (inglés visible en español; guiones y flechas decorativas) · 3 para el dueño: caricatura, estrellas y 10/10, insignia +20 */
  /* Hallmark · waive 24b · calc padding on the page header · the press header clears a nav whose height the script measures */
+ /* Hallmark · answered F20 · cada categoría muestra las notas reales que existen; no se inventan ni se quitan para llenar la fila */
  /* Hallmark · dismissed 49 · the count adds the hidden English twin of each bilingual label; the visible filter pills and logo link wrap cleanly */
   :root {
     --sky-soft: #90caf9;
@@ -33,7 +35,7 @@
     --c-2e7d32: #2e7d32;
     --c-388e3c-a10: rgba(56,142,60,0.1);
     --c-3a4a6b: #3a4a6b;
-    --c-b8860b: #b8860b;
+    --c-8a6500: #8a6500;
     --c-ffc107-a10: rgba(255,193,7,0.1);
     --navy-a03: rgba(26,35,126,0.03);
     --navy-a85: rgba(26,35,126,0.85);
@@ -97,9 +99,8 @@
   }
   @media (hover:hover) and (pointer:fine) { .lang-btn:hover { background:var(--sky-a15); border-color:var(--sky); color:var(--white); } }
   /* bilingual toggle */
-  body .lang-en { display:none; }
-  body.en .lang-es { display:none; }
-  body.en .lang-en { display:inline; }
+  body:not(.en) .lang-en { display:none !important; }
+  body.en .lang-es { display:none !important; }
 
   /* ── HERO HEADER ── */
   .page-header {
@@ -113,7 +114,6 @@
     color:var(--sky); margin-bottom:1rem;
     display:flex; align-items:center; gap:0.7rem;
   }
-  .page-tag::before { content:''; width:1.5rem; height:1px; background:var(--sky); }
   .page-header h1 {
     font-family:var(--font-display);
     font-size:clamp(2.5rem,5vw,4rem); font-weight:300;
@@ -185,9 +185,6 @@
     color:var(--blue); margin-bottom:0.6rem;
     display:flex; align-items:center; gap:0.4rem;
   }
-  .card-type::before {
-    content:''; width:16px; height:1px; background:var(--sky);
-  }
   .card-title {
     font-family:var(--font-display);
     font-size:1.1rem; font-weight:400; color:var(--navy);
@@ -227,7 +224,7 @@
     font-weight:500;
   }
   .badge-sky   { background:var(--sky-a10); color:var(--blue); }
-  .badge-gold  { background:var(--c-ffc107-a10); color:var(--c-b8860b); }
+  .badge-gold  { background:var(--c-ffc107-a10); color:var(--c-8a6500); }
   .badge-green { background:var(--c-388e3c-a10); color:var(--c-2e7d32); }
 
   /* ── BACK TO TOP ── */
@@ -316,6 +313,9 @@
   button:disabled { opacity:0.5; cursor:not-allowed; }
   footer { color:var(--white-a70); }
   .nav-brand-sub, .card-type, .badge, .nav-back { font-size:0.85rem; }
+  nav, .page-header, .filters { padding-inline:max(4rem, calc((100% - 1200px) / 2 + 4rem)); }
+  .filter-btn { min-height:44px; }
+  @media (max-width:768px) { nav { padding-inline:1rem; } .page-header, .filters { padding-inline:1.5rem; } }
 </style>
 </head>
 <body>
@@ -342,6 +342,7 @@
   </div>
 </nav>
 
+<main>
 <!-- PAGE HEADER -->
 <div class="page-header">
   <h1><span class="lang-es">En los Medios</span><span class="lang-en">In the Media</span></h1>
@@ -731,6 +732,8 @@
 </div>
 
 <!-- FOOTER -->
+</main>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">Dr. Ronny Kershenovich Sefchovich, Médico Genetista</div>
